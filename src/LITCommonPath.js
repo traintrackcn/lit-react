@@ -8,3 +8,4 @@ export default class LITCommonPath extends LITPath{
         this.collection = path.concat(['collection']);
     }
 }
+ 
