@@ -1,7 +1,6 @@
 {
   "name": "lit-react",
-  "version": "0.0.1",
-  "private": true,
+  "version": "0.0.3",
   "scripts": {
     "test": "jest"
   },
