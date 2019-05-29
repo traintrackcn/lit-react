@@ -2,21 +2,32 @@
   "name": "lit-react",
   "version": "0.0.5",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "prepublishOnly": "babel ./src --out-dir ./dist -s inline"
   },
-  "dependencies": {
-    "immutable": "^4.0.0-rc.12",
+  "jest": {
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "dist/"
+    ]
+  },
+  "peerDependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
     "babel-jest": "^24.8.0",
+    "immutable": "^4.0.0-rc.12",
     "jest": "^24.8.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "react-test-renderer": "^16.8.6"
   },
-  "main": "index.js",
+  "main": "dist/index.js",
   "author": "",
   "license": "ISC",
   "description": ""
