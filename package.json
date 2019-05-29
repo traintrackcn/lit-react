@@ -3,7 +3,8 @@
   "version": "0.0.5",
   "scripts": {
     "test": "jest",
-    "prepublishOnly": "babel ./src --out-dir ./dist -s inline"
+    "prepublishOnly": "babel ./src --out-dir ./dist -s inline",
+    "publish": "babel ./src --out-dir ./dist -s inline"
   },
   "jest": {
     "testPathIgnorePatterns": [
