@@ -13,4 +13,11 @@ Object.defineProperty(exports, "LITPureComponent", {
 var _LITPureComponent = _interopRequireDefault(require("./LITPureComponent"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL3NyYy9pbmRleC5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7QUFBQSIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBMSVRQdXJlQ29tcG9uZW50IGZyb20gJy4vTElUUHVyZUNvbXBvbmVudCc7XG5cbmV4cG9ydCB7XG4gICAgTElUUHVyZUNvbXBvbmVudFxufTtcbiJdfQ==
+
+var a = function a() {
+  var abc = 'abc';
+  var b = 'aaa';
+  var c = 'heelo';
+  var d = 'aaa';
+  var e = 'eee';
+};
