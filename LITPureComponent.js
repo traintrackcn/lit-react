@@ -19,4 +19,8 @@ export default class LITPureComponent extends PureComponent {
         
     }
 
+    render(){
+        return null;
+    }
+
 }
