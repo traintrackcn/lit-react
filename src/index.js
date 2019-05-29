@@ -5,7 +5,7 @@ const a = () => {
     var b = 'aaa';
     var c = 'heelo';
     var d = 'aaa';
-    var e = 'eee';
+    var e = '3f33';
 }
 
 export {

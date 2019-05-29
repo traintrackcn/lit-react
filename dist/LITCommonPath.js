@@ -33,7 +33,7 @@ function (_LITPath) {
 
     _classCallCheck(this, LITCommonPath);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(LITCommonPath).call(this, path)); // console.log('path -> '+this.path+' '+this.constructor.name);
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(LITCommonPath).call(this, path)); // console.log('path -> '+this.path+' '+this.constructor.name); 
 
     _this.value = path.concat(['value']);
     _this.index = path.concat(['index']);
