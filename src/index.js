@@ -1,13 +1,13 @@
 import LITPureComponent from './LITPureComponent';
-
-const a = () => {
-    var abc = 'abc';
-    var b = 'aaa';
-    var c = 'heelo';
-    var d = 'aaa';
-    var e = '3f33';
-}
+import LITStore from './LITStore';
+import LITReducer from './LITReducer';
+import LITPath from './LITPath';
+import LITCommonPath from './LITCommonPath';
 
 export {
-    LITPureComponent
+    LITPureComponent,
+    LITStore,
+    LITPath,
+    LITReducer,
+    LITCommonPath
 };
