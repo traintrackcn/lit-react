@@ -5,6 +5,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = void 0;
 
+var _immutable = require("immutable");
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -17,7 +19,6 @@ function () {
   function LITStore(store) {
     _classCallCheck(this, LITStore);
 
-    console.log('store -> ' + store);
     this.store = store;
     this.dispatch = this.dispatch.bind(this);
     this.getState = this.getState.bind(this);
@@ -29,8 +30,6 @@ function () {
   _createClass(LITStore, [{
     key: "dispatch",
     value: function dispatch(action) {
-      // console.log('this.store -> '+this.store);
-      // console.log('this.store.dispatch -> '+this.store.dispatch);
       return this.store.dispatch(action);
     }
   }, {
@@ -41,18 +40,14 @@ function () {
   }, {
     key: "get",
     value: function get(path) {
-      if (!path) throw {
-        'reason': 'path is unavailable'
-      };
+      if (!path) throw new Error('path is unavailable');
       if (path.path) path = path.path;
 
       if (!(path instanceof Array)) {
         var current = 'UNKNOWN'; // console.log('path type -> '+path.prop.constructor);
 
         if (path.constructor) current = path.constructor.name;
-        throw {
-          'reason': 'path should be array. current ' + current
-        };
+        throw new Error('path should be array. current ' + current);
       }
 
       var state = this.store.getState();
@@ -61,16 +56,16 @@ function () {
   }, {
     key: "set",
     value: function set(path, value) {
-      var r = this.r; // console.log('s.set() path -> '+JSON.stringify(path, null, 2));
-      // console.log('s.set() value -> '+JSON.stringify(value, null, 2));
+      var r = this.r;
+      if (!value) return;
+      if (!value.toJS) value = (0, _immutable.fromJS)(value); // if it's plain js object , convert it to immutable object first
 
       this.store.dispatch(r.SET(path, value));
     }
   }, {
     key: "del",
     value: function del(path) {
-      var r = this.r; // console.log('setIn -> '+JSON.stringify(path)+' '+value);
-
+      var r = this.r;
       this.store.dispatch(r.DELETE(path));
     }
   }]);
