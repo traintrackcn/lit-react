@@ -6,7 +6,7 @@ import LITCommonPath from './LITCommonPath';
 import LITHandler from './handler/C';
 import s, { store } from './s';
 
-export default {
+export {
     LITPureComponent,
     LITStore,
     LITPath,

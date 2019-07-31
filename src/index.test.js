@@ -1,4 +1,8 @@
-// import { LITHandler } from '.';
+import { LITPath, LITHandler, s, store } from './index';
 it('test imports', ()=>{
-    // expect(LITHandler).toBeTruthy();
+    expect(LITPath).toBeTruthy();
+    expect(s).toBeTruthy();
+    expect(store).toBeTruthy();
+    expect(LITHandler).toBeTruthy();
+    
 });

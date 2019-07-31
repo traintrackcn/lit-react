@@ -1,5 +1,10 @@
 "use strict";
 
-// import { LITHandler } from '.';
-it('test imports', function () {// expect(LITHandler).toBeTruthy();
+var _index = require("./index");
+
+it('test imports', function () {
+  expect(_index.LITPath).toBeTruthy();
+  expect(_index.s).toBeTruthy();
+  expect(_index.store).toBeTruthy();
+  expect(_index.LITHandler).toBeTruthy();
 });
