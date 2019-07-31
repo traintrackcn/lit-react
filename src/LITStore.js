@@ -2,9 +2,10 @@ import { fromJS } from 'immutable';
 
 export default class LITStore {
 
-    constructor(store){
+    constructor(store, r){
 
         this.store = store;
+        this.r = r;
         this.dispatch = this.dispatch.bind(this);
         this.getState = this.getState.bind(this);
         this.get = this.get.bind(this);

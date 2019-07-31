@@ -11,16 +11,36 @@ export default class LITPureComponent extends PureComponent {
         this.onReceiveProps(this.props);
     }
 
+    tryComponentWillMount(){
+        
+    }
+
     componentWillReceiveProps(nextProps){
         this.onReceiveProps(nextProps);
     }
 
     onReceiveProps(props){
-        
+        try{
+            return this.tryOnReceiveProps(props);
+        }catch(e){
+            return null;
+        }
+    }
+
+    tryOnReceiveProps(props){
+
     }
 
     render(){
-        return null;
+        try{
+            return this.tryRender();
+        }catch(e){
+            return null;
+        }
+    }
+
+    tryRender(){
+        
     }
 
 }

@@ -34,5 +34,9 @@
   "main": "dist/index.js",
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "redux": "^4.0.4",
+    "redux-immutable": "^4.0.0"
+  }
 }

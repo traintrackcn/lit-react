@@ -48,18 +48,37 @@ function (_PureComponent) {
       this.onReceiveProps(this.props);
     }
   }, {
+    key: "tryComponentWillMount",
+    value: function tryComponentWillMount() {}
+  }, {
     key: "componentWillReceiveProps",
     value: function componentWillReceiveProps(nextProps) {
       this.onReceiveProps(nextProps);
     }
   }, {
     key: "onReceiveProps",
-    value: function onReceiveProps(props) {}
+    value: function onReceiveProps(props) {
+      try {
+        return this.tryOnReceiveProps(props);
+      } catch (e) {
+        return null;
+      }
+    }
+  }, {
+    key: "tryOnReceiveProps",
+    value: function tryOnReceiveProps(props) {}
   }, {
     key: "render",
     value: function render() {
-      return null;
+      try {
+        return this.tryRender();
+      } catch (e) {
+        return null;
+      }
     }
+  }, {
+    key: "tryRender",
+    value: function tryRender() {}
   }]);
 
   return LITPureComponent;

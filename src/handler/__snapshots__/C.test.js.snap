@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test set_collection 1`] = `
+Immutable.Map {
+  "collection": Immutable.List [
+    "a",
+    "b",
+    "c",
+  ],
+}
+`;
+
+exports[`test set_collection 2`] = `"b"`;
+
+exports[`test set_collection 3`] = `
+Immutable.Map {
+  "collection": Immutable.List [
+    "a",
+    "b",
+    "c",
+  ],
+  "index": 1,
+  "value": "b",
+}
+`;
+
+exports[`test set_value 1`] = `
+Immutable.Map {
+  "value": Immutable.Map {
+    "key": "value",
+  },
+}
+`;
+
+exports[`test set_value 2`] = `
+Immutable.Map {
+  "key": "value",
+}
+`;

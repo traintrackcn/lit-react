@@ -16,10 +16,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 var LITStore =
 /*#__PURE__*/
 function () {
-  function LITStore(store) {
+  function LITStore(store, r) {
     _classCallCheck(this, LITStore);
 
     this.store = store;
+    this.r = r;
     this.dispatch = this.dispatch.bind(this);
     this.getState = this.getState.bind(this);
     this.get = this.get.bind(this);
