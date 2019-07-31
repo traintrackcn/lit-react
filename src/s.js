@@ -7,5 +7,5 @@ export const r = new LITReducer();
 const rootReducer = combineReducers({
     r: r.reducer
 });
-const store = createStore(rootReducer);
+export const store = createStore(rootReducer);
 export default new LITStore(store, r);
