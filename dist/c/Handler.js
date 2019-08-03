@@ -9,6 +9,8 @@ var _utils = _interopRequireDefault(require("./_utils"));
 
 var _Node = _interopRequireDefault(require("./Node"));
 
+var _Key = _interopRequireDefault(require("./Key"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -39,22 +41,36 @@ function () {
       return node.get(ctx);
     }
   }, {
+    key: "get_k",
+    value: function get_k(key) {
+      var k;
+
+      if (key && key instanceof _Key["default"]) {
+        k = key.value;
+      } else {
+        k = key;
+      }
+
+      return k;
+    }
+  }, {
     key: "get_raw_node",
     value: function get_raw_node(key) {
-      return this.map[key.value];
+      var k = this.get_k(key);
+      return this.map[k];
     }
   }, {
     key: "get_node",
     value: function get_node(key) {
-      // var key = K.key;
-      var cached = this.cache[key.value];
+      var k = this.get_k(key);
+      var cached = this.cache[k];
       if (cached) return cached;
       if (!this.map) return;
-      var node = this.map[key.value];
-      console.log('key ->', key.value, node);
+      var node = this.map[k];
+      console.log('key ->', k, node);
       cached = new _Node["default"](node); //set to cache
 
-      this.cache[key.value] = cached;
+      this.cache[k] = cached;
       return cached;
     }
   }]);

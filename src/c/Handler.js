@@ -1,5 +1,6 @@
 import utils from './_utils';
 import Node from './Node';
+import Key from './Key';
 
 export default class {
 
@@ -17,24 +18,36 @@ export default class {
         return node.get(ctx);
     }
 
+    get_k(key){
+        var k;
+        if (key && ( key instanceof Key)){
+            k = key.value;
+        }else{
+            k = key;
+        }
+        return k;
+    }   
+
     get_raw_node(key){
-        return this.map[key.value];
+
+        const k = this.get_k(key);
+        return this.map[k];
     }
 
 
     get_node(key){
-        // var key = K.key;
-        var cached = this.cache[key.value];
+        const k = this.get_k(key);
+        var cached = this.cache[k];
         if (cached) return cached;
 
         if (!this.map) return;
 
-        const node = this.map[key.value];
-        console.log('key ->', key.value, node);
+        const node = this.map[k];
+        console.log('key ->', k, node);
         cached = new Node(node);
 
         //set to cache
-        this.cache[key.value] = cached;
+        this.cache[k] = cached;
 
         return cached;
     }

@@ -15,18 +15,21 @@ describe('', () => {
         const key = new Key();
         key.value = 'config,menu';
         expect(handler.get_raw_node(key)).toMatchSnapshot();
+        expect(handler.get_raw_node('config,menu')).toMatchSnapshot();
     });
 
     it('get node "config,menu"', () => {
         const key = new Key();
         key.value = 'config,menu';
         expect(handler.get_node(key)).toMatchSnapshot();
+        expect(handler.get_node('config,menu')).toMatchSnapshot();
     });
 
     it('get node "config,menu,web" base rule', () => {
         const key = new Key();
         key.value = 'config,menu,WEB';
         expect(handler.get(key)).toMatchSnapshot();
+        expect(handler.get('config,menu,WEB')).toMatchSnapshot();
 
 
         const ctx = ['prj1'];

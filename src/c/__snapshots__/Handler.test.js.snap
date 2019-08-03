@@ -207,6 +207,53 @@ _default {
 }
 `;
 
+exports[`get node "config,menu" 2`] = `
+_default {
+  "active": false,
+  "base": undefined,
+  "children": Array [
+    Object {
+      "active": true,
+      "r": Array [
+        Object {
+          "base": "LIT",
+          "on": true,
+        },
+        Object {
+          "_": Array [
+            "prj1",
+          ],
+          "base": "OTHER",
+        },
+      ],
+      "title": "WEB",
+    },
+    Object {
+      "active": true,
+      "expanded": true,
+      "r": Array [
+        Object {
+          "base": "LIT",
+          "on": true,
+        },
+      ],
+      "title": "APP",
+    },
+    Object {
+      "active": true,
+      "title": "API",
+    },
+    Object {
+      "active": true,
+      "title": "MISC",
+    },
+  ],
+  "description": undefined,
+  "rules": undefined,
+  "title": "menu",
+}
+`;
+
 exports[`get node "config,menu,web" base rule 1`] = `
 Object {
   "base": "LIT",
@@ -215,6 +262,13 @@ Object {
 `;
 
 exports[`get node "config,menu,web" base rule 2`] = `
+Object {
+  "base": "LIT",
+  "on": true,
+}
+`;
+
+exports[`get node "config,menu,web" base rule 3`] = `
 Object {
   "base": "OTHER",
   "ctx": Array [
@@ -225,6 +279,50 @@ Object {
 `;
 
 exports[`get raw node "config,menu" 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "active": true,
+      "r": Array [
+        Object {
+          "base": "LIT",
+          "on": true,
+        },
+        Object {
+          "_": Array [
+            "prj1",
+          ],
+          "base": "OTHER",
+        },
+      ],
+      "title": "WEB",
+    },
+    Object {
+      "active": true,
+      "expanded": true,
+      "r": Array [
+        Object {
+          "base": "LIT",
+          "on": true,
+        },
+      ],
+      "title": "APP",
+    },
+    Object {
+      "active": true,
+      "title": "API",
+    },
+    Object {
+      "active": true,
+      "title": "MISC",
+    },
+  ],
+  "expanded": false,
+  "title": "menu",
+}
+`;
+
+exports[`get raw node "config,menu" 2`] = `
 Object {
   "children": Array [
     Object {

@@ -18,16 +18,19 @@ describe('', function () {
     var key = new _Key["default"]();
     key.value = 'config,menu';
     expect(handler.get_raw_node(key)).toMatchSnapshot();
+    expect(handler.get_raw_node('config,menu')).toMatchSnapshot();
   });
   it('get node "config,menu"', function () {
     var key = new _Key["default"]();
     key.value = 'config,menu';
     expect(handler.get_node(key)).toMatchSnapshot();
+    expect(handler.get_node('config,menu')).toMatchSnapshot();
   });
   it('get node "config,menu,web" base rule', function () {
     var key = new _Key["default"]();
     key.value = 'config,menu,WEB';
     expect(handler.get(key)).toMatchSnapshot();
+    expect(handler.get('config,menu,WEB')).toMatchSnapshot();
     var ctx = ['prj1'];
     expect(handler.get(key, ctx)).toMatchSnapshot();
   });
