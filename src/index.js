@@ -6,6 +6,10 @@ import LITCommonPath from './LITCommonPath';
 import LITHandler from './handler/C';
 import s, { store } from './s';
 
+import CNode from './c/Node';
+import CKey from './c/Key';
+import CHanlder from './c/Handler';
+
 export {
     LITPureComponent,
     LITStore,
@@ -14,5 +18,11 @@ export {
     LITCommonPath,
     LITHandler,
     s,
-    store
+    store,
+};
+
+module.exports.c = {
+  Node: CNode,
+  Key: CKey,
+  Handler: CHanlder  
 };
