@@ -10,7 +10,14 @@ import CNode from './c/Node';
 import CKey from './c/Key';
 import CHanlder from './c/Handler';
 
-export default {
+
+const c = {
+    Node: CNode,
+    Key: CKey,
+    Handler: CHanlder  
+  };
+
+export {
     LITPureComponent,
     LITStore,
     LITPath,
@@ -18,11 +25,6 @@ export default {
     LITCommonPath,
     LITHandler,
     s,
-    store
-};
-
-export const c = {
-  Node: CNode,
-  Key: CKey,
-  Handler: CHanlder  
+    store,
+    c
 };
