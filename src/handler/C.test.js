@@ -33,4 +33,14 @@ describe('', () => {
         expect(stateU.get()).toMatchSnapshot();
         expect(stateU.get_value()).toMatchSnapshot();
     });
+
+
+    it('test s ops', () => {
+        s.set(p.a, 'a');
+        expect(s.get(p.a)).toMatchSnapshot();
+        s.set(p.a, undefined);
+        expect(s.get(p.a)).toBeFalsy();
+    });
+
+
 });

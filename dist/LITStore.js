@@ -58,7 +58,12 @@ function () {
     key: "set",
     value: function set(path, value) {
       var r = this.r;
-      if (!value) return;
+
+      if (!value) {
+        this.del(path);
+        return;
+      }
+
       if (!value.toJS) value = (0, _immutable.fromJS)(value); // if it's plain js object , convert it to immutable object first
 
       this.store.dispatch(r.SET(path, value));

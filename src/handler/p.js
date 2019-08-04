@@ -6,6 +6,7 @@ class C extends LITPath{
     constructor(path){
         super(path);
         this.t = this.path.concat(['t']);
+        this.a = this.path.concat(['a']);
     }
 }
 

@@ -31,4 +31,13 @@ describe('', function () {
     expect(stateU.get()).toMatchSnapshot();
     expect(stateU.get_value()).toMatchSnapshot();
   });
+  it('test s ops', function () {
+    _s["default"].set(_p["default"].a, 'a');
+
+    expect(_s["default"].get(_p["default"].a)).toMatchSnapshot();
+
+    _s["default"].set(_p["default"].a, undefined);
+
+    expect(_s["default"].get(_p["default"].a)).toBeFalsy();
+  });
 });

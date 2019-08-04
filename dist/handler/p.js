@@ -36,6 +36,7 @@ function (_LITPath) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(C).call(this, path));
     _this.t = _this.path.concat(['t']);
+    _this.a = _this.path.concat(['a']);
     return _this;
   }
 
