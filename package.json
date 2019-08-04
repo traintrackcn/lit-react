@@ -1,6 +1,6 @@
 {
   "name": "lit-react",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "scripts": {
     "test": "jest",
     "prepublishOnly": "babel ./src --out-dir ./dist -s inline",

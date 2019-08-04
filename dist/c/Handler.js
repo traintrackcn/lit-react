@@ -66,9 +66,10 @@ function () {
       var cached = this.cache[k];
       if (cached) return cached;
       if (!this.map) return;
-      var node = this.map[k];
-      console.log('key ->', k, node);
-      cached = new _Node["default"](node); //set to cache
+      var raw = this.map[k];
+      if (!raw) return;
+      console.log('key ->', k, raw);
+      cached = new _Node["default"](raw); //set to cache
 
       this.cache[k] = cached;
       return cached;

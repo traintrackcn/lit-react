@@ -42,9 +42,10 @@ export default class {
 
         if (!this.map) return;
 
-        const node = this.map[k];
-        console.log('key ->', k, node);
-        cached = new Node(node);
+        const raw = this.map[k];
+        if (!raw) return;
+        console.log('key ->', k, raw);
+        cached = new Node(raw);
 
         //set to cache
         this.cache[k] = cached;
