@@ -38,6 +38,7 @@ function () {
     key: "get",
     value: function get(key, ctx) {
       var node = this.get_node(key);
+      if (!node) return;
       return node.get(ctx);
     }
   }, {

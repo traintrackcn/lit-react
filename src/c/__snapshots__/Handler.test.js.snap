@@ -254,6 +254,10 @@ _default {
 }
 `;
 
+exports[`get node "config,menu,undefined" 1`] = `undefined`;
+
+exports[`get node "config,menu,undefined" 2`] = `undefined`;
+
 exports[`get node "config,menu,web" base rule 1`] = `
 Object {
   "base": "LIT",

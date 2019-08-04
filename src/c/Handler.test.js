@@ -25,6 +25,14 @@ describe('', () => {
         expect(handler.get_node('config,menu')).toMatchSnapshot();
     });
 
+    it('get node "config,menu,undefined"', () => {
+      const key = new Key();
+      const kValue = 'config,menu,undefined';
+      key.value = kValue;
+      expect(handler.get_node(key)).toMatchSnapshot();
+      expect(handler.get_node(kValue)).toMatchSnapshot();
+  });
+
     it('get node "config,menu,web" base rule', () => {
         const key = new Key();
         key.value = 'config,menu,WEB';

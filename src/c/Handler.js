@@ -15,6 +15,7 @@ export default class {
 
     get(key, ctx){
         const node = this.get_node(key);
+        if (!node) return;
         return node.get(ctx);
     }
 
