@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = void 0;
 
-var _utils = _interopRequireDefault(require("./_utils"));
+var _util = _interopRequireDefault(require("./_util"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -77,7 +77,7 @@ function () {
         // console.log('ctx -> '+JSON.stringify(ctx));
         // console.log('rule._ -> '+JSON.stringify(rule._));
 
-        if (_utils["default"].arrayContainsArray1(ctx, rule._)) {
+        if (_util["default"].arrayContainsArray1(ctx, rule._)) {
           result = Object.assign(result, rule);
         }
       });

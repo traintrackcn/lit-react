@@ -9,12 +9,14 @@ import s, { store } from './s';
 import CNode from './c/Node';
 import CKey from './c/Key';
 import CHanlder from './c/Handler';
+import CUtil from './c/_util';
 
 
 const c = {
     Node: CNode,
     Key: CKey,
-    Handler: CHanlder  
+    Handler: CHanlder, 
+    util: CUtil 
   };
 
 export {

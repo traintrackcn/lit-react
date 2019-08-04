@@ -40,7 +40,7 @@ export default class LITPureComponent extends PureComponent {
     }
 
     tryRender(){
-        
+        return null;
     }
 
 }

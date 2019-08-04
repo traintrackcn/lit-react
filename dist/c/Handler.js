@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = void 0;
 
-var _utils = _interopRequireDefault(require("./_utils"));
+var _util = _interopRequireDefault(require("./_util"));
 
 var _Node = _interopRequireDefault(require("./Node"));
 
@@ -32,7 +32,7 @@ function () {
   _createClass(_default, [{
     key: "parse",
     value: function parse(data) {
-      this.map = _utils["default"].getTreeMap(data);
+      this.map = _util["default"].getTreeMap(data);
     }
   }, {
     key: "get",

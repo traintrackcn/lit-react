@@ -78,7 +78,9 @@ function (_PureComponent) {
     }
   }, {
     key: "tryRender",
-    value: function tryRender() {}
+    value: function tryRender() {
+      return null;
+    }
   }]);
 
   return LITPureComponent;

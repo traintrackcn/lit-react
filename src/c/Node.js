@@ -1,4 +1,4 @@
-import utils from './_utils';
+import utils from './_util';
 
 export default class {
 
