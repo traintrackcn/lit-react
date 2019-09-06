@@ -45,7 +45,7 @@ export default class LITStore {
         if (!value) {
             this.del(path);
             return;
-        }
+        } 
         if (!value.toJS) value = fromJS( value ); // if it's plain js object , convert it to immutable object first
         this.store.dispatch(r.SET(path, value));
         console.log('dispatched r.SET ->', value);

@@ -67,12 +67,14 @@ function () {
       if (!value.toJS) value = (0, _immutable.fromJS)(value); // if it's plain js object , convert it to immutable object first
 
       this.store.dispatch(r.SET(path, value));
+      console.log('dispatched r.SET ->', value);
     }
   }, {
     key: "del",
     value: function del(path) {
       var r = this.r;
       this.store.dispatch(r.DELETE(path));
+      console.log('dispatched r.DELETE');
     }
   }]);
 
