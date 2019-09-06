@@ -48,11 +48,13 @@ export default class LITStore {
         }
         if (!value.toJS) value = fromJS( value ); // if it's plain js object , convert it to immutable object first
         this.store.dispatch(r.SET(path, value));
+        console.log('dispatched r.SET ->', value);
     }
     
     del(path) {
         const r = this.r;
         this.store.dispatch(r.DELETE(path));
+        console.log('dispatched r.DELETE');
     }
     
 }
