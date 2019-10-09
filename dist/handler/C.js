@@ -98,6 +98,13 @@ function () {
       this.set(state);
     }
   }, {
+    key: "del_custom_value",
+    value: function del_custom_value(key) {
+      var state = this.get();
+      state = state["delete"](key);
+      this.set(state);
+    }
+  }, {
     key: "s",
     set: function set(value) {
       this._s = value;

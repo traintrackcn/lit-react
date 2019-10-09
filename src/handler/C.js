@@ -68,7 +68,6 @@ export default class{
         this.children.push(childU);
     }
 
-
     get_custom_value(key){
         const state = this.get();
         return state.get(key);
@@ -77,6 +76,12 @@ export default class{
     set_custom_value(key, value){
         var state = this.get();
         state = state.set(key, value);
+        this.set(state);
+    }
+
+    del_custom_value(key){
+        var state = this.get();
+        state = state.delete(key);
         this.set(state);
     }
 
