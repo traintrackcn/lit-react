@@ -1,3 +1,5 @@
+"use strict";
+
 // import StateU from './C';
 // import s from '../../storage/s';
 // import p from '../../storage/p';
@@ -24,4 +26,4 @@
 //         expect(stateU.get_value()).toMatchSnapshot();
 //     });
 // });
-"use strict";
+it('', function () {});
