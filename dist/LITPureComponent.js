@@ -39,21 +39,18 @@ function (_PureComponent) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(LITPureComponent).call(this, props));
     _this.state = {};
-    _this.mounted = false;
-    _this.unmounted = false;
-    _this.a = 'a';
     return _this;
   }
 
   _createClass(LITPureComponent, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.mounted = true;
+    key: "get_unmounted",
+    value: function get_unmounted() {
+      return this.unmounted;
     }
   }, {
     key: "componentWillUnmount",
     value: function componentWillUnmount() {
-      this.mounted = false;
+      this.unmounted = true;
     }
   }, {
     key: "componentWillMount",
