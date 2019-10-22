@@ -39,6 +39,7 @@ function (_PureComponent) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(LITPureComponent).call(this, props));
     _this.state = {};
+    _this.unmounted = true;
     _this.get_unmounted = _this.get_unmounted.bind(_assertThisInitialized(_this));
     return _this;
   }

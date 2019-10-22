@@ -5,6 +5,7 @@ export default class LITPureComponent extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {};
+        this.unmounted = true;
         this.get_unmounted = this.get_unmounted.bind(this);
     }
 
