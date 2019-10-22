@@ -38,9 +38,8 @@ function (_PureComponent) {
     _classCallCheck(this, LITPureComponent);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(LITPureComponent).call(this, props));
-    _this.state = {};
-    _this._mounted = false;
-    _this.unmounted = false;
+    _this.state = {}; // this._mounted = false;
+
     return _this;
   }
 
@@ -48,17 +47,13 @@ function (_PureComponent) {
     key: "componentWillMount",
     value: function componentWillMount() {
       this.onReceiveProps(this.props);
-    }
-  }, {
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this._mounted = true;
-    }
-  }, {
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {
-      this._mounted = false;
-    }
+    } // componentDidMount(){
+    //     this._mounted = true;
+    // }
+    // componentWillUnmount(){
+    //     this._mounted = false;
+    // }
+
   }, {
     key: "tryComponentWillMount",
     value: function tryComponentWillMount() {}
