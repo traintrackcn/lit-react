@@ -39,7 +39,7 @@ it('test child LITPureComponent', function () {
       _classCallCheck(this, ChildComponent);
 
       _this = _possibleConstructorReturn(this, _getPrototypeOf(ChildComponent).call(this));
-      console.log('mounted ->', _this.mounted);
+      console.log('_mounted ->', _this._mounted);
       return _this;
     }
 

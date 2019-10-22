@@ -14,7 +14,7 @@ it('test child LITPureComponent', () => {
     class ChildComponent extends LITPureComponent{
         constructor(){
             super();
-            console.log('mounted ->', this.mounted);
+            console.log('_mounted ->', this._mounted);
         }
     }
 

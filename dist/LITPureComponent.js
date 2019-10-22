@@ -39,7 +39,7 @@ function (_PureComponent) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(LITPureComponent).call(this, props));
     _this.state = {};
-    _this.mounted = false;
+    _this._mounted = false;
     _this.unmounted = false;
     return _this;
   }
@@ -52,12 +52,12 @@ function (_PureComponent) {
   }, {
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.mounted = true;
+      this._mounted = true;
     }
   }, {
     key: "componentWillUnmount",
     value: function componentWillUnmount() {
-      this.mounted = false;
+      this._mounted = false;
     }
   }, {
     key: "tryComponentWillMount",
