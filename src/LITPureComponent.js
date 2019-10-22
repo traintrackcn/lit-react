@@ -5,15 +5,19 @@ export default class LITPureComponent extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {};
-        this.unmounted = false;
-    }
-
-    componentWillUnmount(){
-        this.unmounted = true;
+        this.mounted = false;
     }
 
     componentWillMount(){
         this.onReceiveProps(this.props);
+    }
+
+    componentDidMount(){
+        this.mounted = true;
+    }
+
+    componentWillUnmount(){
+        this.mounted = false;
     }
 
     tryComponentWillMount(){
