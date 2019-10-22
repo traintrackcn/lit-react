@@ -40,6 +40,8 @@ function (_PureComponent) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(LITPureComponent).call(this, props));
     _this.state = {};
     _this.mounted = false;
+    _this.unmounted = false;
+    _this.a = 'a';
     return _this;
   }
 
