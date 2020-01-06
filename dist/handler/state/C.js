@@ -95,7 +95,6 @@ function () {
       var collection = this.get_collection();
       if (!collection) return;
       var value = collection.get(index);
-      console.log('value ->', value);
       state = state.set('index', index);
       state = state.set('value', value);
       this.set(state);
