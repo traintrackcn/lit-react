@@ -78,6 +78,7 @@ export default class {
         if(!collection) return;
 
         const value = collection.get(index);
+        console.log('value ->', value);
         state = state.set('index', index);
         state = state.set('value', value);
 
