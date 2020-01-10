@@ -20,6 +20,14 @@ export default class LITPureComponent extends PureComponent {
     //     this._mounted = false;
     // }
 
+    navigate(route, params){
+        this.props.navigation.navigate(route, params);
+    }
+
+    get_navi_param(key) {
+        return this.props.navigation.getParam(key);
+    }
+
     tryComponentWillMount(){
         
     }

@@ -55,6 +55,16 @@ function (_PureComponent) {
     // }
 
   }, {
+    key: "navigate",
+    value: function navigate(route, params) {
+      this.props.navigation.navigate(route, params);
+    }
+  }, {
+    key: "get_navi_param",
+    value: function get_navi_param(key) {
+      return this.props.navigation.getParam(key);
+    }
+  }, {
     key: "tryComponentWillMount",
     value: function tryComponentWillMount() {}
   }, {
