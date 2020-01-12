@@ -65,6 +65,11 @@ function (_PureComponent) {
       return this.props.navigation.getParam(key);
     }
   }, {
+    key: "set_navi_params",
+    value: function set_navi_params(params) {
+      this.props.navigation.setParams(params);
+    }
+  }, {
     key: "tryComponentWillMount",
     value: function tryComponentWillMount() {}
   }, {

@@ -28,6 +28,10 @@ export default class LITPureComponent extends PureComponent {
         return this.props.navigation.getParam(key);
     }
 
+    set_navi_params(params) {
+        this.props.navigation.setParams(params);
+    }
+
     tryComponentWillMount(){
         
     }
