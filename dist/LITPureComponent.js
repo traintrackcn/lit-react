@@ -60,6 +60,11 @@ function (_PureComponent) {
       this.props.navigation.navigate(route, params);
     }
   }, {
+    key: "back",
+    value: function back() {
+      this.props.navigation.goBack(null);
+    }
+  }, {
     key: "get_navi_param",
     value: function get_navi_param(key) {
       return this.props.navigation.getParam(key);

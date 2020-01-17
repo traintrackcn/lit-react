@@ -24,6 +24,10 @@ export default class LITPureComponent extends PureComponent {
         this.props.navigation.navigate(route, params);
     }
 
+    back() {
+        this.props.navigation.goBack(null);
+    }
+
     get_navi_param(key) {
         return this.props.navigation.getParam(key);
     }
