@@ -22,11 +22,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-it('test LITPureComponent', function () {
-  var tree = _reactTestRenderer["default"].create(_react["default"].createElement(_LITPureComponent2["default"], null)).toJSON();
-
-  expect(tree).toMatchSnapshot();
-});
 it('test child LITPureComponent', function () {
   var ChildComponent =
   /*#__PURE__*/

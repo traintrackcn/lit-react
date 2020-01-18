@@ -47,13 +47,7 @@ function (_PureComponent) {
     key: "componentWillMount",
     value: function componentWillMount() {
       this.onReceiveProps(this.props);
-    } // componentDidMount(){
-    //     this._mounted = true;
-    // }
-    // componentWillUnmount(){
-    //     this._mounted = false;
-    // }
-
+    }
   }, {
     key: "navigate",
     value: function navigate(route, params) {
@@ -65,18 +59,27 @@ function (_PureComponent) {
       this.props.navigation.goBack(null);
     }
   }, {
-    key: "get_navi_param",
-    value: function get_navi_param(key) {
+    key: "getNaviParam",
+    value: function getNaviParam(key) {
       return this.props.navigation.getParam(key);
     }
   }, {
+    key: "setNaviParams",
+    value: function setNaviParams(params) {
+      this.props.navigation.setParams(params);
+    } //deprecated
+
+  }, {
+    key: "get_navi_param",
+    value: function get_navi_param(key) {
+      return this.getNaviParam(key);
+    } //deprecated
+
+  }, {
     key: "set_navi_params",
     value: function set_navi_params(params) {
-      this.props.navigation.setParams(params);
+      this.setNaviParams(params);
     }
-  }, {
-    key: "tryComponentWillMount",
-    value: function tryComponentWillMount() {}
   }, {
     key: "componentWillReceiveProps",
     value: function componentWillReceiveProps(nextProps) {
@@ -84,30 +87,7 @@ function (_PureComponent) {
     }
   }, {
     key: "onReceiveProps",
-    value: function onReceiveProps(props) {
-      try {
-        return this.tryOnReceiveProps(props);
-      } catch (e) {
-        return null;
-      }
-    }
-  }, {
-    key: "tryOnReceiveProps",
-    value: function tryOnReceiveProps(props) {}
-  }, {
-    key: "render",
-    value: function render() {
-      try {
-        return this.tryRender();
-      } catch (e) {
-        return null;
-      }
-    }
-  }, {
-    key: "tryRender",
-    value: function tryRender() {
-      return null;
-    }
+    value: function onReceiveProps(props) {}
   }]);
 
   return LITPureComponent;
