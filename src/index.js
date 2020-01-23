@@ -4,6 +4,7 @@ import LITReducer from './LITReducer';
 import LITPath from './LITPath';
 import LITCommonPath from './LITCommonPath';
 import LITHandler from './handler/C';
+import LITStateHandler from './handler/C';
 import s, { store } from './s';
 
 import CNode from './c/Node';
@@ -25,7 +26,8 @@ export {
     LITPath,
     LITReducer,
     LITCommonPath,
-    LITHandler,
+    LITStateHandler,
+    LITHandler, //deprecated
     s,
     store,
     c
