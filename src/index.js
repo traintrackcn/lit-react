@@ -6,6 +6,7 @@ import LITCommonPath from './LITCommonPath';
 import LITHandler from './LITStateHandler';
 import LITStateHandler from './LITStateHandler';
 import LITComponentHandler from './LITComponentHandler';
+import Collection from './Collection';
 import s, { store } from './s';
 
 import CNode from './c/Node';
@@ -29,6 +30,7 @@ export {
     LITCommonPath,
     LITStateHandler,
     LITComponentHandler,
+    Collection,
     LITHandler, //deprecated
     s,
     store,

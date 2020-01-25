@@ -51,6 +51,12 @@ Object.defineProperty(exports, "LITComponentHandler", {
     return _LITComponentHandler["default"];
   }
 });
+Object.defineProperty(exports, "Collection", {
+  enumerable: true,
+  get: function get() {
+    return _Collection["default"];
+  }
+});
 Object.defineProperty(exports, "s", {
   enumerable: true,
   get: function get() {
@@ -78,6 +84,8 @@ var _LITCommonPath = _interopRequireDefault(require("./LITCommonPath"));
 var _LITStateHandler = _interopRequireDefault(require("./LITStateHandler"));
 
 var _LITComponentHandler = _interopRequireDefault(require("./LITComponentHandler"));
+
+var _Collection = _interopRequireDefault(require("./Collection"));
 
 var _s = _interopRequireWildcard(require("./s"));
 
