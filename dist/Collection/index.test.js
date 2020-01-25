@@ -1,12 +1,12 @@
 "use strict";
 
-var _Collection = _interopRequireDefault(require("./Collection"));
+var _ = _interopRequireDefault(require("."));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 describe('', function () {
   it('test key to value', function () {
-    var c = new _Collection["default"]();
+    var c = new _["default"]();
     c.set('a', 'a');
     c.set('b', 'b');
     var value = JSON.stringify(c.get_values());
@@ -15,7 +15,7 @@ describe('', function () {
     expect(c.get('a')).toBe('a');
   });
   it('test key to values', function () {
-    var c = new _Collection["default"](true);
+    var c = new _["default"](true);
     c.set('a', 'a');
     c.set('a', 'aa');
     var value = JSON.stringify(c.get('a'));
