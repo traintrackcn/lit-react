@@ -116,7 +116,7 @@ export default class LITReducer {
 
         if ( !this.myAction(action) ) return state;
 
-        console.log('=== ACTION -> '+this.ns+' '+action.type);
+        // console.log('=== ACTION -> '+this.ns+' '+action.type);
         // state = Map();
         switch(action.type){
             case 'SET':{

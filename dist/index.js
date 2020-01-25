@@ -36,13 +36,19 @@ Object.defineProperty(exports, "LITCommonPath", {
 Object.defineProperty(exports, "LITHandler", {
   enumerable: true,
   get: function get() {
-    return _C["default"];
+    return _LITStateHandler["default"];
   }
 });
 Object.defineProperty(exports, "LITStateHandler", {
   enumerable: true,
   get: function get() {
-    return _C["default"];
+    return _LITStateHandler["default"];
+  }
+});
+Object.defineProperty(exports, "LITComponentHandler", {
+  enumerable: true,
+  get: function get() {
+    return _LITComponentHandler["default"];
   }
 });
 Object.defineProperty(exports, "s", {
@@ -69,7 +75,9 @@ var _LITPath = _interopRequireDefault(require("./LITPath"));
 
 var _LITCommonPath = _interopRequireDefault(require("./LITCommonPath"));
 
-var _C = _interopRequireDefault(require("./handler/C"));
+var _LITStateHandler = _interopRequireDefault(require("./LITStateHandler"));
+
+var _LITComponentHandler = _interopRequireDefault(require("./LITComponentHandler"));
 
 var _s = _interopRequireWildcard(require("./s"));
 

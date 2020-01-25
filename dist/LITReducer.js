@@ -128,8 +128,8 @@ function () {
     value: function main() {
       var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : (0, _immutable.Map)();
       var action = arguments.length > 1 ? arguments[1] : undefined;
-      if (!this.myAction(action)) return state;
-      console.log('=== ACTION -> ' + this.ns + ' ' + action.type); // state = Map();
+      if (!this.myAction(action)) return state; // console.log('=== ACTION -> '+this.ns+' '+action.type);
+      // state = Map();
 
       switch (action.type) {
         case 'SET':

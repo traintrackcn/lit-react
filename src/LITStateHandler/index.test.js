@@ -1,4 +1,4 @@
-import StateU from './C';
+import StateU from '.';
 import s from '../s';
 import p from './p';
 import { fromJS } from 'immutable';
