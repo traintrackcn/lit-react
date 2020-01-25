@@ -85,9 +85,18 @@ function (_PureComponent) {
     value: function componentWillReceiveProps(nextProps) {
       this.onReceiveProps(nextProps);
     }
+    /**
+     * @deprecated
+     */
+
   }, {
     key: "onReceiveProps",
     value: function onReceiveProps(props) {}
+  }, {
+    key: "render",
+    value: function render() {
+      return null;
+    }
   }]);
 
   return LITPureComponent;

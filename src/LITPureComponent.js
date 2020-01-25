@@ -42,7 +42,14 @@ export default class LITPureComponent extends PureComponent {
         this.onReceiveProps(nextProps);
     }
 
+    /**
+     * @deprecated
+     */
     onReceiveProps(props){
+    }
+
+    render() {
+        return null;
     }
 
 
