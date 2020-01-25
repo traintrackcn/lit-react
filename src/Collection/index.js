@@ -29,12 +29,23 @@ export default class {
         return this.data[key];
     }
 
+    /**
+     * @deprecated
+    */
     get_values(){
-        return Object.values(this.data);
+        return this.getList();
     }
 
+    getKeys() {
+        return Object.keys(this.data);
+    }
+    
     getValues() {
-        return this.get_values();
+        return this.getList();
+    }
+
+    getList() {
+        return Object.values(this.data);
     }
 
     getSize() {

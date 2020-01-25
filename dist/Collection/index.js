@@ -52,15 +52,29 @@ function () {
     value: function get(key) {
       return this.data[key];
     }
+    /**
+     * @deprecated
+    */
+
   }, {
     key: "get_values",
     value: function get_values() {
-      return Object.values(this.data);
+      return this.getList();
+    }
+  }, {
+    key: "getKeys",
+    value: function getKeys() {
+      return Object.keys(this.data);
     }
   }, {
     key: "getValues",
     value: function getValues() {
-      return this.get_values();
+      return this.getList();
+    }
+  }, {
+    key: "getList",
+    value: function getList() {
+      return Object.values(this.data);
     }
   }, {
     key: "getSize",
