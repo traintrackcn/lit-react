@@ -66,6 +66,7 @@ export default class{
 
     push(childU){
         this.children.push(childU);
+        if (this.s) childU.s = this.s;
     }
 
     get_custom_value(key){

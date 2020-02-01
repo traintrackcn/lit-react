@@ -83,6 +83,7 @@ function () {
     key: "push",
     value: function push(childU) {
       this.children.push(childU);
+      if (this.s) childU.s = this.s;
     }
   }, {
     key: "get_custom_value",
