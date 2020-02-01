@@ -5,7 +5,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
+exports["default"] = exports.RootPath = void 0;
 
 var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
 
@@ -18,24 +18,26 @@ var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits
 var _LITPath2 = _interopRequireDefault(require("../LITPath"));
 
 //for test purpose
-var C =
+var RootPath =
 /*#__PURE__*/
 function (_LITPath) {
-  (0, _inherits2["default"])(C, _LITPath);
+  (0, _inherits2["default"])(RootPath, _LITPath);
 
-  function C(path) {
+  function RootPath(path) {
     var _this;
 
-    (0, _classCallCheck2["default"])(this, C);
-    _this = (0, _possibleConstructorReturn2["default"])(this, (0, _getPrototypeOf2["default"])(C).call(this, path));
+    (0, _classCallCheck2["default"])(this, RootPath);
+    _this = (0, _possibleConstructorReturn2["default"])(this, (0, _getPrototypeOf2["default"])(RootPath).call(this, path));
     _this.t = _this.path.concat(['t']);
     _this.a = _this.path.concat(['a']);
     return _this;
   }
 
-  return C;
+  return RootPath;
 }(_LITPath2["default"]);
 
-var _default = new C(['r']);
+exports.RootPath = RootPath;
+
+var _default = new RootPath(['r']);
 
 exports["default"] = _default;

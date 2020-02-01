@@ -1,3 +1,5 @@
+import LITPath from "../LITPath";
+
 export default class {
 
     set(ctx, extraCtx) {
@@ -24,6 +26,7 @@ export default class {
     isPath() {
         const ctx = this.get();
         if (Array.isArray(ctx)) return true;
+        if ( ctx instanceof LITPath ) return true;
         return false;
     }
 

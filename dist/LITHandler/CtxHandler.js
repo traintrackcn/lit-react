@@ -11,6 +11,8 @@ var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/cl
 
 var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
 
+var _LITPath = _interopRequireDefault(require("../LITPath"));
+
 var _default =
 /*#__PURE__*/
 function () {
@@ -51,6 +53,7 @@ function () {
     value: function isPath() {
       var ctx = this.get();
       if (Array.isArray(ctx)) return true;
+      if (ctx instanceof _LITPath["default"]) return true;
       return false;
     }
   }, {

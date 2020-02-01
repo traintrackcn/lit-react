@@ -2,7 +2,7 @@ import LITPath from "../LITPath";
 
 //for test purpose
 
-class C extends LITPath{
+export class RootPath extends LITPath{
     constructor(path){
         super(path);
         this.t = this.path.concat(['t']);
@@ -10,4 +10,6 @@ class C extends LITPath{
     }
 }
 
-export default new C(['r']);
+
+
+export default new RootPath(['r']);

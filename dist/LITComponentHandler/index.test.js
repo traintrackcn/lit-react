@@ -30,10 +30,12 @@ describe('test component handler', function () {
   it('test getHandler()', function () {
     var refComponent = function refComponent(ref) {
       var h = ref.getHandler();
-      var childStateH = h.getChildStateHandler();
+      var childStateHWithArrayPath = h.getChildStateHandlerWithArrayPath();
+      var childStateHWithObjectPath = h.getChildStateHandlerWithObjectPath();
       var childComponentH = h.getChildComponentHandler();
       var childH = h.getChildHandler();
-      expect(childStateH.getHandler()).toBe(h);
+      expect(childStateHWithArrayPath.getHandler()).toBe(h);
+      expect(childStateHWithObjectPath.getHandler()).toBe(h);
       expect(childComponentH.getHandler()).toBe(h);
       expect(childH.getHandler()).toBe(h);
     };
@@ -89,13 +91,22 @@ function (_LITComponentHandler) {
   }
 
   (0, _createClass2["default"])(TopHandler, [{
-    key: "getChildStateHandler",
-    value: function getChildStateHandler() {
+    key: "getChildStateHandlerWithArrayPath",
+    value: function getChildStateHandlerWithArrayPath() {
       if (!this._state) {
         this._state = new StateHandler(_p["default"].t, this);
       }
 
       return this._state;
+    }
+  }, {
+    key: "getChildStateHandlerWithObjectPath",
+    value: function getChildStateHandlerWithObjectPath() {
+      if (!this._state1) {
+        this._state1 = new StateHandler(_p["default"], this);
+      }
+
+      return this._state1;
     }
   }, {
     key: "getChildComponentHandler",

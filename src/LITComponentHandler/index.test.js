@@ -11,11 +11,13 @@ describe('test component handler', () => {
     it('test getHandler()', () => {
         const refComponent = (ref) => {
             const h = ref.getHandler();
-            const childStateH = h.getChildStateHandler();
+            const childStateHWithArrayPath = h.getChildStateHandlerWithArrayPath();
+            const childStateHWithObjectPath = h.getChildStateHandlerWithObjectPath();
             const childComponentH = h.getChildComponentHandler();
             const childH = h.getChildHandler();
 
-            expect(childStateH.getHandler()).toBe(h);
+            expect(childStateHWithArrayPath.getHandler()).toBe(h);
+            expect(childStateHWithObjectPath.getHandler()).toBe(h);
             expect(childComponentH.getHandler()).toBe(h);
             expect(childH.getHandler()).toBe(h);
         
@@ -56,11 +58,18 @@ class TestComponent extends LITPureComponent {
 
 class TopHandler extends LITComponentHandler {
 
-    getChildStateHandler() {
+    getChildStateHandlerWithArrayPath() {
         if (!this._state) {
             this._state = new StateHandler(p.t, this);
         }
         return this._state;
+    }
+
+    getChildStateHandlerWithObjectPath() {
+        if(!this._state1) {
+            this._state1 = new StateHandler(p, this);
+        }
+        return this._state1
     }
 
     getChildComponentHandler() {
