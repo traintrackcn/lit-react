@@ -19,6 +19,7 @@ describe('test component handler', () => {
 
             expect(childStateHWithArrayPath.getHandler()).toBe(h);
             expect(childStateHWithObjectPath.getHandler()).toBe(h);
+            // expect(childStateHWithObjectPath.p).toBe();
             expect(stateHWithoutPath).toBe(stateHWithoutPath);
             expect(childComponentH.getHandler()).toBe(h);
             expect(childH.getHandler()).toBe(h);

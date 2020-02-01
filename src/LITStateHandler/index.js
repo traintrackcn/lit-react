@@ -11,7 +11,9 @@ export default class extends LITHandler{
     setupPath() {
         try{
             this.p = this.getPath();
-        }catch(e){}
+        }catch(e){
+            console.log('setup path failed '+e);
+        }
     }
 
     getStateHandler() {

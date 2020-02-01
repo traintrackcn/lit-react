@@ -36,7 +36,8 @@ describe('test component handler', function () {
       var childComponentH = h.getChildComponentHandler();
       var childH = h.getChildHandler();
       expect(childStateHWithArrayPath.getHandler()).toBe(h);
-      expect(childStateHWithObjectPath.getHandler()).toBe(h);
+      expect(childStateHWithObjectPath.getHandler()).toBe(h); // expect(childStateHWithObjectPath.p).toBe();
+
       expect(stateHWithoutPath).toBe(stateHWithoutPath);
       expect(childComponentH.getHandler()).toBe(h);
       expect(childH.getHandler()).toBe(h);
