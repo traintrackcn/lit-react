@@ -13,11 +13,13 @@ describe('test component handler', () => {
             const h = ref.getHandler();
             const childStateHWithArrayPath = h.getChildStateHandlerWithArrayPath();
             const childStateHWithObjectPath = h.getChildStateHandlerWithObjectPath();
+            const stateHWithoutPath = new StateHandler();
             const childComponentH = h.getChildComponentHandler();
             const childH = h.getChildHandler();
 
             expect(childStateHWithArrayPath.getHandler()).toBe(h);
             expect(childStateHWithObjectPath.getHandler()).toBe(h);
+            expect(stateHWithoutPath).toBe(stateHWithoutPath);
             expect(childComponentH.getHandler()).toBe(h);
             expect(childH.getHandler()).toBe(h);
         
@@ -72,6 +74,8 @@ class TopHandler extends LITComponentHandler {
         return this._state1
     }
 
+    
+
     getChildComponentHandler() {
         if (!this._component) {
             this._component = new ComponentHandler(this);
@@ -87,6 +91,9 @@ class TopHandler extends LITComponentHandler {
     }
 
 }
+
+
+
 
 class StateHandler extends LITStateHandler{
 

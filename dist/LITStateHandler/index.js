@@ -31,11 +31,20 @@ function (_LITHandler) {
 
     (0, _classCallCheck2["default"])(this, _default);
     _this = (0, _possibleConstructorReturn2["default"])(this, (0, _getPrototypeOf2["default"])(_default).call(this, path, ctx));
-    _this.p = _this.getPath();
+
+    _this.setupPath();
+
     return _this;
   }
 
   (0, _createClass2["default"])(_default, [{
+    key: "setupPath",
+    value: function setupPath() {
+      try {
+        this.p = this.getPath();
+      } catch (e) {}
+    }
+  }, {
     key: "getStateHandler",
     value: function getStateHandler() {
       if (!this._state) {

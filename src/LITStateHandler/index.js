@@ -5,7 +5,13 @@ export default class extends LITHandler{
     
     constructor(path, ctx){
         super(path, ctx);
-        this.p = this.getPath();
+        this.setupPath();
+    }
+
+    setupPath() {
+        try{
+            this.p = this.getPath();
+        }catch(e){}
     }
 
     getStateHandler() {
