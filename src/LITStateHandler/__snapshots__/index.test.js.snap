@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`test s ops 1`] = `"a"`;
+exports[`test state handler test s ops 1`] = `"a"`;
 
-exports[`test set_collection 1`] = `
+exports[`test state handler test set_collection 1`] = `
 Immutable.Map {
   "collection": Immutable.List [
     "a",
@@ -12,9 +12,9 @@ Immutable.Map {
 }
 `;
 
-exports[`test set_collection 2`] = `"b"`;
+exports[`test state handler test set_collection 2`] = `"b"`;
 
-exports[`test set_collection 3`] = `
+exports[`test state handler test set_collection 3`] = `
 Immutable.Map {
   "collection": Immutable.List [
     "a",
@@ -26,7 +26,7 @@ Immutable.Map {
 }
 `;
 
-exports[`test set_value 1`] = `
+exports[`test state handler test set_value 1`] = `
 Immutable.Map {
   "value": Immutable.Map {
     "key": "value",
@@ -34,7 +34,7 @@ Immutable.Map {
 }
 `;
 
-exports[`test set_value 2`] = `
+exports[`test state handler test set_value 2`] = `
 Immutable.Map {
   "key": "value",
 }

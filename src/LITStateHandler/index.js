@@ -1,21 +1,40 @@
-import StateU from './state/C';
+import StateHandler from './state/Handler';
+import LITHandler from '../LITHandler';
 
-export default class{
+export default class extends LITHandler{
     
-    constructor(path){
-        this._s;
-        this.children = [];
-        this.p = path;
+    constructor(path, ctx){
+        super(path, ctx);
+        this.p = this.getPath();
+    }
 
-        // console.log('u name ->', this.constructor.name);
+    getStateHandler() {
+        if (!this._state) {
+            const path = this.getPath();
+            this._state = new StateHandler(path);
+            this.push(this._state);
+        }
+        return this._state;
+    }
 
-        this._state = new StateU(path);
-        this.push(this._state);
+    getChildren() {
+        if (!this._children) {
+            this._children = [];
+        }
+        return this._children;
+    }
+
+    push(childH){
+        const children = this.getChildren();
+        children.push(childH);
+        if (this.s) childH.s = this.s;
     }
 
     set s(value){
         this._s = value;
-        this.children.forEach(child => {
+
+        const children = this.getChildren();
+        children.forEach(child => {
             child.s = value;
         });
     }
@@ -25,63 +44,166 @@ export default class{
     }
 
     get(){
-        return this._state.get();
+        const h = this.getStateHandler();
+        return h.get();
     }
 
     set(value){
-        this._state.set(value);
-    }
-
-    get_value(){
-        return this._state.get_value();
-    }
-
-    set_value(value){
-        this._state.set_value(value);
-    }
-
-    del_value(){
-        this._state.del_value();
+        const h = this.getStateHandler();
+        h.set(value);
     }
 
     del(){
-        this._state.del();
+        const h = this.getStateHandler();
+        h.del();
     }
 
-    get_collection(){
-        return this._state.get_collection();
+    getValue(){
+        const h = this.getStateHandler();
+        return h.get_value();
     }
 
-    set_collection(value){
-        this._state.set_collection(value);
+    setValue(value) {
+        const h = this.getStateHandler();
+        h.set_value(value);
     }
 
-    select(index){
-        this._state.select(index);
+    delValue() {
+        const h = this.getStateHandler();
+        h.del_value();
     }
 
-    get_selected_index(){
-        return this._state.get_selected_index();
-    }
-
-    push(childU){
-        this.children.push(childU);
-        if (this.s) childU.s = this.s;
-    }
-
-    get_custom_value(key){
-        const state = this.get();
+    getKey(key){
+        const h = this.getStateHandler();
+        const state = h.get();
         return state.get(key);
     }
 
-    set_custom_value(key, value){
-        var state = this.get();
+    /**
+     * @deprecated
+     */
+    setKey(key, value){
+        const h = this.getStateHandler();
+        var state = h.get();
         state = state.set(key, value);
         this.set(state);
     }
 
+    delKey(key){
+        const h = this.getStateHandler();
+        var state = h.get();
+        state = state.delete(key);
+        this.set(state);
+    }
+
+    getCollection(){
+        const h = this.getStateHandler();
+        return h.get_collection();
+    }
+
+    setCollection(value){
+        const h = this.getStateHandler();
+        h.set_collection(value);
+    }
+
+    select(index){
+        const h = this.getStateHandler();
+        h.select(index);
+    }
+
+    getSelectedIndex(){
+        const h = this.getStateHandler();
+        return h.get_selected_index();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /**
+     * @deprecated
+     */
+    get_value(){
+        return this.getValue();
+    }
+
+    /**
+     * @deprecated
+     */
+    set_value(value){
+        this.setValue(value);
+    }
+
+    /**
+     * @deprecated
+     */
+    del_value(){
+        this.delValue();
+    }
+
+    /**
+     * @deprecated
+     */
+    get_collection(){
+        return this.getCollection();
+    }
+
+    /**
+     * @deprecated
+     */
+    set_collection(value){
+        this.setCollection(value);
+    }
+
+    /**
+     * @deprecated
+     */
+    get_selected_index(){
+        return this._state.get_selected_index();
+    }
+
+    /**
+     * @deprecated
+     */
+    get_custom_value(key){
+        const h = this.getStateHandler();
+        const state = h.get();
+        return state.get(key);
+    }
+
+    /**
+     * @deprecated
+     */
+    set_custom_value(key, value){
+        const h = this.getStateHandler();
+        var state = h.get();
+        state = state.set(key, value);
+        this.set(state);
+    }
+
+    /**
+     * @deprecated
+     */
     del_custom_value(key){
-        var state = this.get();
+        const h = this.getStateHandler();
+        var state = h.get();
         state = state.delete(key);
         this.set(state);
     }

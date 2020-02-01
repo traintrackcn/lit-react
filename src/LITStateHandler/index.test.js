@@ -1,37 +1,42 @@
-import StateU from '.';
+import Handler from '.';
 import s from '../s';
 import p from './p';
 import { fromJS } from 'immutable';
 
-const stateU = new StateU(p.t);
-stateU.s = s;
+const h = new Handler(p.t);
+h.s = s;
 
-describe('', () => {
+describe('test state handler', () => {
 
 
     it('test set_collection', () => {
 
-        stateU.del();
+        h.del();
 
         const collection = [
             'a', 'b', 'c'
         ];
-        stateU.set_collection(fromJS(collection));
-        expect(stateU.get()).toMatchSnapshot();
-        stateU.select(1);
-        expect(stateU.get_value()).toMatchSnapshot();
+        h.set_collection(fromJS(collection));
+        expect(h.get()).toMatchSnapshot();
+        h.select(1);
+        expect(h.getValue()).toMatchSnapshot();
 
-        expect(stateU.get()).toMatchSnapshot();
+        expect(h.get()).toMatchSnapshot();
     });
+
+    it('test getPath', () => {
+        const expected = '["r","t"]';
+        expect(JSON.stringify(h.getPath())).toBe(expected);
+    })
 
     it('test set_value', () => {
 
-        stateU.del();
+        h.del();
 
         const value = { 'key': 'value' }
-        stateU.set_value(value);
-        expect(stateU.get()).toMatchSnapshot();
-        expect(stateU.get_value()).toMatchSnapshot();
+        h.setValue(value);
+        expect(h.get()).toMatchSnapshot();
+        expect(h.getValue()).toMatchSnapshot();
     });
 
 

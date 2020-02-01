@@ -24,8 +24,8 @@ function () {
   (0, _createClass2["default"])(_default, [{
     key: "get",
     value: function get() {
-      if (!this.s) throw new Error('stateU.s not found, p -> ' + JSON.stringify(this.p));
-      if (!this.p) throw new Error('stateU.p not found');
+      if (!this.s) throw new Error('stateH.s not found, p -> ' + JSON.stringify(this.p));
+      if (!this.p) throw new Error('stateH.p not found');
       var state = this.s.get(this.p);
       if (state) return state; // set init state
 

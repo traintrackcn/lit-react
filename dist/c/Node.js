@@ -1,26 +1,23 @@
 "use strict";
 
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports["default"] = void 0;
 
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
+
 var _util = _interopRequireDefault(require("./_util"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 var _default =
 /*#__PURE__*/
 function () {
   function _default(raw) {
-    _classCallCheck(this, _default);
-
+    (0, _classCallCheck2["default"])(this, _default);
     // console.log('raw -> '+JSON.stringify(raw, null, 2));
     // this.raw = raw;
     this.title = raw.title;
@@ -36,7 +33,7 @@ function () {
     // console.log('rules -> '+JSON.stringify(this.rules, null, 2));
   }
 
-  _createClass(_default, [{
+  (0, _createClass2["default"])(_default, [{
     key: "searchBase",
     value: function searchBase(rules) {
       if (!rules) return;
@@ -94,7 +91,6 @@ function () {
       return result;
     }
   }]);
-
   return _default;
 }();
 

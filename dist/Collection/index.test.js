@@ -1,8 +1,8 @@
 "use strict";
 
-var _ = _interopRequireDefault(require("."));
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+var _ = _interopRequireDefault(require("."));
 
 describe('', function () {
   it('test key to value', function () {

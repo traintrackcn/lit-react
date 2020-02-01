@@ -1,19 +1,9 @@
-export default class {
+import LITHandler from "../LITHandler";
+
+export default class extends LITHandler{
 
     constructor(component) {
-        this.setComponent(component);
-    }
-
-    reset() {
-        this._c = undefined;
-    }
-
-    getComponent() {
-        return this._c;
-    }
-
-    setComponent(value) {
-        this._c = value;
+        super(component)
     }
 
     getProps() {
@@ -31,17 +21,6 @@ export default class {
             return props.navigation;
         }catch(e){
             throw e;
-        }
-        
-    }
-
-    getHandler() {
-        try{
-            const c = this.getComponent();
-            return c.getHandler();
-        }catch(e){
-            const reason = 'cannot get top component handler';
-            throw new Error(reason);
         }
         
     }

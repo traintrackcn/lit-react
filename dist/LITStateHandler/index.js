@@ -1,107 +1,240 @@
 "use strict";
 
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports["default"] = void 0;
 
-var _C = _interopRequireDefault(require("./state/C"));
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
+
+var _Handler = _interopRequireDefault(require("./state/Handler"));
+
+var _LITHandler2 = _interopRequireDefault(require("../LITHandler"));
 
 var _default =
 /*#__PURE__*/
-function () {
-  function _default(path) {
-    _classCallCheck(this, _default);
+function (_LITHandler) {
+  (0, _inherits2["default"])(_default, _LITHandler);
 
-    this._s;
-    this.children = [];
-    this.p = path; // console.log('u name ->', this.constructor.name);
+  function _default(path, ctx) {
+    var _this;
 
-    this._state = new _C["default"](path);
-    this.push(this._state);
+    (0, _classCallCheck2["default"])(this, _default);
+    _this = (0, _possibleConstructorReturn2["default"])(this, (0, _getPrototypeOf2["default"])(_default).call(this, path, ctx));
+    _this.p = _this.getPath();
+    return _this;
   }
 
-  _createClass(_default, [{
+  (0, _createClass2["default"])(_default, [{
+    key: "getStateHandler",
+    value: function getStateHandler() {
+      if (!this._state) {
+        var path = this.getPath();
+        this._state = new _Handler["default"](path);
+        this.push(this._state);
+      }
+
+      return this._state;
+    }
+  }, {
+    key: "getChildren",
+    value: function getChildren() {
+      if (!this._children) {
+        this._children = [];
+      }
+
+      return this._children;
+    }
+  }, {
+    key: "push",
+    value: function push(childH) {
+      var children = this.getChildren();
+      children.push(childH);
+      if (this.s) childH.s = this.s;
+    }
+  }, {
     key: "get",
     value: function get() {
-      return this._state.get();
+      var h = this.getStateHandler();
+      return h.get();
     }
   }, {
     key: "set",
     value: function set(value) {
-      this._state.set(value);
-    }
-  }, {
-    key: "get_value",
-    value: function get_value() {
-      return this._state.get_value();
-    }
-  }, {
-    key: "set_value",
-    value: function set_value(value) {
-      this._state.set_value(value);
-    }
-  }, {
-    key: "del_value",
-    value: function del_value() {
-      this._state.del_value();
+      var h = this.getStateHandler();
+      h.set(value);
     }
   }, {
     key: "del",
     value: function del() {
-      this._state.del();
+      var h = this.getStateHandler();
+      h.del();
     }
   }, {
-    key: "get_collection",
-    value: function get_collection() {
-      return this._state.get_collection();
+    key: "getValue",
+    value: function getValue() {
+      var h = this.getStateHandler();
+      return h.get_value();
     }
   }, {
-    key: "set_collection",
-    value: function set_collection(value) {
-      this._state.set_collection(value);
+    key: "setValue",
+    value: function setValue(value) {
+      var h = this.getStateHandler();
+      h.set_value(value);
+    }
+  }, {
+    key: "delValue",
+    value: function delValue() {
+      var h = this.getStateHandler();
+      h.del_value();
+    }
+  }, {
+    key: "getKey",
+    value: function getKey(key) {
+      var h = this.getStateHandler();
+      var state = h.get();
+      return state.get(key);
+    }
+    /**
+     * @deprecated
+     */
+
+  }, {
+    key: "setKey",
+    value: function setKey(key, value) {
+      var h = this.getStateHandler();
+      var state = h.get();
+      state = state.set(key, value);
+      this.set(state);
+    }
+  }, {
+    key: "delKey",
+    value: function delKey(key) {
+      var h = this.getStateHandler();
+      var state = h.get();
+      state = state["delete"](key);
+      this.set(state);
+    }
+  }, {
+    key: "getCollection",
+    value: function getCollection() {
+      var h = this.getStateHandler();
+      return h.get_collection();
+    }
+  }, {
+    key: "setCollection",
+    value: function setCollection(value) {
+      var h = this.getStateHandler();
+      h.set_collection(value);
     }
   }, {
     key: "select",
     value: function select(index) {
-      this._state.select(index);
+      var h = this.getStateHandler();
+      h.select(index);
     }
+  }, {
+    key: "getSelectedIndex",
+    value: function getSelectedIndex() {
+      var h = this.getStateHandler();
+      return h.get_selected_index();
+    }
+    /**
+     * @deprecated
+     */
+
+  }, {
+    key: "get_value",
+    value: function get_value() {
+      return this.getValue();
+    }
+    /**
+     * @deprecated
+     */
+
+  }, {
+    key: "set_value",
+    value: function set_value(value) {
+      this.setValue(value);
+    }
+    /**
+     * @deprecated
+     */
+
+  }, {
+    key: "del_value",
+    value: function del_value() {
+      this.delValue();
+    }
+    /**
+     * @deprecated
+     */
+
+  }, {
+    key: "get_collection",
+    value: function get_collection() {
+      return this.getCollection();
+    }
+    /**
+     * @deprecated
+     */
+
+  }, {
+    key: "set_collection",
+    value: function set_collection(value) {
+      this.setCollection(value);
+    }
+    /**
+     * @deprecated
+     */
+
   }, {
     key: "get_selected_index",
     value: function get_selected_index() {
       return this._state.get_selected_index();
     }
-  }, {
-    key: "push",
-    value: function push(childU) {
-      this.children.push(childU);
-      if (this.s) childU.s = this.s;
-    }
+    /**
+     * @deprecated
+     */
+
   }, {
     key: "get_custom_value",
     value: function get_custom_value(key) {
-      var state = this.get();
+      var h = this.getStateHandler();
+      var state = h.get();
       return state.get(key);
     }
+    /**
+     * @deprecated
+     */
+
   }, {
     key: "set_custom_value",
     value: function set_custom_value(key, value) {
-      var state = this.get();
+      var h = this.getStateHandler();
+      var state = h.get();
       state = state.set(key, value);
       this.set(state);
     }
+    /**
+     * @deprecated
+     */
+
   }, {
     key: "del_custom_value",
     value: function del_custom_value(key) {
-      var state = this.get();
+      var h = this.getStateHandler();
+      var state = h.get();
       state = state["delete"](key);
       this.set(state);
     }
@@ -109,7 +242,8 @@ function () {
     key: "s",
     set: function set(value) {
       this._s = value;
-      this.children.forEach(function (child) {
+      var children = this.getChildren();
+      children.forEach(function (child) {
         child.s = value;
       });
     },
@@ -117,8 +251,7 @@ function () {
       return this._s;
     }
   }]);
-
   return _default;
-}();
+}(_LITHandler2["default"]);
 
 exports["default"] = _default;

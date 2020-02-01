@@ -1,5 +1,7 @@
 "use strict";
 
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
 var _ = _interopRequireDefault(require("."));
 
 var _s = _interopRequireDefault(require("../s"));
@@ -8,28 +10,30 @@ var _p = _interopRequireDefault(require("./p"));
 
 var _immutable = require("immutable");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-var stateU = new _["default"](_p["default"].t);
-stateU.s = _s["default"];
-describe('', function () {
+var h = new _["default"](_p["default"].t);
+h.s = _s["default"];
+describe('test state handler', function () {
   it('test set_collection', function () {
-    stateU.del();
+    h.del();
     var collection = ['a', 'b', 'c'];
-    stateU.set_collection((0, _immutable.fromJS)(collection));
-    expect(stateU.get()).toMatchSnapshot();
-    stateU.select(1);
-    expect(stateU.get_value()).toMatchSnapshot();
-    expect(stateU.get()).toMatchSnapshot();
+    h.set_collection((0, _immutable.fromJS)(collection));
+    expect(h.get()).toMatchSnapshot();
+    h.select(1);
+    expect(h.getValue()).toMatchSnapshot();
+    expect(h.get()).toMatchSnapshot();
+  });
+  it('test getPath', function () {
+    var expected = '["r","t"]';
+    expect(JSON.stringify(h.getPath())).toBe(expected);
   });
   it('test set_value', function () {
-    stateU.del();
+    h.del();
     var value = {
       'key': 'value'
     };
-    stateU.set_value(value);
-    expect(stateU.get()).toMatchSnapshot();
-    expect(stateU.get_value()).toMatchSnapshot();
+    h.setValue(value);
+    expect(h.get()).toMatchSnapshot();
+    expect(h.getValue()).toMatchSnapshot();
   });
   it('test s ops', function () {
     _s["default"].set(_p["default"].a, 'a');

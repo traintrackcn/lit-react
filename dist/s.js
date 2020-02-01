@@ -1,5 +1,7 @@
 "use strict";
 
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
@@ -12,8 +14,6 @@ var _redux = require("redux");
 var _reduxImmutable = require("redux-immutable");
 
 var _LITStore = _interopRequireDefault(require("./LITStore"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 var r = new _LITReducer["default"]();
 exports.r = r;

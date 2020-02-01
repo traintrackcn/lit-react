@@ -1,10 +1,10 @@
 "use strict";
 
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
 var _Handler = _interopRequireDefault(require("./Handler"));
 
 var _Key = _interopRequireDefault(require("./Key"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 describe('', function () {
   var handler = new _Handler["default"]();
