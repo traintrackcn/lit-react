@@ -53,7 +53,7 @@ function () {
     value: function isPath() {
       var ctx = this.get();
       if (Array.isArray(ctx)) return true;
-      if (ctx instanceof _LITPath["default"]) return true;
+      if (ctx.path) return true;
       return false;
     }
   }, {

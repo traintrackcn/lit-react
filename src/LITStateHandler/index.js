@@ -12,7 +12,7 @@ export default class extends LITHandler{
         try{
             this.p = this.getPath();
         }catch(e){
-            console.log('setup path failed '+e);
+            
         }
     }
 

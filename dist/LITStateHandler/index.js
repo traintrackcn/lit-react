@@ -42,9 +42,7 @@ function (_LITHandler) {
     value: function setupPath() {
       try {
         this.p = this.getPath();
-      } catch (e) {
-        console.log('setup path failed ' + e);
-      }
+      } catch (e) {}
     }
   }, {
     key: "getStateHandler",
