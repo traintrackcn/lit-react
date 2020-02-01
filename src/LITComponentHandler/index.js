@@ -35,6 +35,17 @@ export default class {
         
     }
 
+    getHandler() {
+        try{
+            const c = this.getComponent();
+            return c.getHandler();
+        }catch(e){
+            const reason = 'cannot get top component handler';
+            throw new Error(reason);
+        }
+        
+    }
+
     setState(value) {
         const c = this.getComponent();
         // console.log('c ->', c);

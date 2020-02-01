@@ -60,6 +60,17 @@ function () {
       }
     }
   }, {
+    key: "getHandler",
+    value: function getHandler() {
+      try {
+        var c = this.getComponent();
+        return c.getHandler();
+      } catch (e) {
+        var reason = 'cannot get top component handler';
+        throw new Error(reason);
+      }
+    }
+  }, {
     key: "setState",
     value: function setState(value) {
       var c = this.getComponent(); // console.log('c ->', c);
