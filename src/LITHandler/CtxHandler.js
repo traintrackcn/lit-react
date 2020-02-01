@@ -30,7 +30,7 @@ export default class {
     getPath() {
         const ctx = this.get();
         if (this.isPath()) return ctx;
-        const reason = 'Invalid path';
+        const reason = 'Invalid path '+ctx;
         throw new Error(reason);
     }
 

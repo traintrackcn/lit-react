@@ -58,7 +58,7 @@ function () {
     value: function getPath() {
       var ctx = this.get();
       if (this.isPath()) return ctx;
-      var reason = 'Invalid path';
+      var reason = 'Invalid path ' + ctx;
       throw new Error(reason);
     }
   }, {
