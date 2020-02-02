@@ -118,7 +118,7 @@ function () {
     value: function _getHandler(fnName) {
       if (!fnName) fnName = 'getHandler';
       var parent = this.getParentHandlerOrComponent();
-      console.log("=== search handler from parent -> ".concat(this.getDebugInfo(parent), " ==="));
+      console.log("=== search ".concat(fnName, " from parent -> ").concat(this.getDebugInfo(parent), " ==="));
       var fn = parent[fnName];
 
       if (fn) {
