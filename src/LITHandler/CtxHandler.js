@@ -51,7 +51,7 @@ export default class {
     getParentHandlerOrComponent() {
         const ctx = this.get();
         const isPath = this.isPath(ctx);
-        console.log('isPath ->', isPath);
+        // console.log('isPath ->', isPath);
         if (isPath) {
             return this.getExtra();
         }

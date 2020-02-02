@@ -81,8 +81,7 @@ function () {
     key: "getParentHandlerOrComponent",
     value: function getParentHandlerOrComponent() {
       var ctx = this.get();
-      var isPath = this.isPath(ctx);
-      console.log('isPath ->', isPath);
+      var isPath = this.isPath(ctx); // console.log('isPath ->', isPath);
 
       if (isPath) {
         return this.getExtra();
