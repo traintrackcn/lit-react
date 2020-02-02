@@ -47,12 +47,13 @@ describe('test component handler', function () {
       ref: refComponent
     }));
   });
-  it('test getComponent()', function () {
+  it.only('test getComponent()', function () {
     var refComponent = function refComponent(ref) {
       var h = ref.getHandler();
-      var c = h.getComponent(); // console.log('component ->', c.componentDidMount);
+      var childComponentH = h.getChildComponentHandler(); // console.log('component ->', c.componentDidMount);
+      // expect(h.getComponent()).toBeTruthy();
 
-      expect(c).toBeTruthy();
+      expect(childComponentH.getComponent()).toBeTruthy();
     };
 
     _reactTestRenderer["default"].create(_react["default"].createElement(TestComponent, {

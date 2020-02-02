@@ -27,7 +27,6 @@ export default class {
     isPath() {
         const ctx = this.get();
         if (Array.isArray(ctx)) return true;
-        if (ctx.path) return true;
         return false;
     }
 
@@ -38,26 +37,32 @@ export default class {
         throw new Error(reason);
     }
 
-    isComponent() {
-        const ctx = this.get();
-        if (ctx instanceof LITPureComponent) return true;
-        return false;
-    }
+    // isComponent() {
+    //     const ctx = this.get();
+    //     if (ctx instanceof LITPureComponent) return true;
+    //     return false;
+    // }
 
-    getComponent() {
-        const ctx = this.get();
-        if (this.isComponent()) return ctx;
-        const reason = `Invalid component -> ${ctx}`;
-        throw new Error(reason);
-    }
+    
 
-    getType() {
-        if (this.isComponent()) {
-            return 'Component';
-        }else if (this.isPath()) {
-            return 'Path';
-        }else{
-            return 'Handler';
+    // getType() {
+    //     if (this.isComponent()) {
+    //         return 'Component';
+    //     }else if (this.isPath()) {
+    //         return 'Path';
+    //     }else{
+    //         return 'Handler';
+    //     }
+    // }
+
+    getDebugInfo(item) {
+        try{
+            const result = item.constructor.name;
+            // console.log('result ->', result);
+            return result;
+        }catch(e){
+            // console.log('e ->', e);
+            return item;
         }
     }
 
@@ -68,10 +73,20 @@ export default class {
         return this.get();
     }
 
+    getComponent() {
+        const item = this.getParentHandlerOrComponent();
+        console.log(`=== getComponent ${this.getDebugInfo(item)} ===`);
+        if (item instanceof LITPureComponent) return item;
+        if (item) return item.getComponent();
+
+        const reason = `Invalid component -> ${ctx}`;
+        throw new Error(reason);
+    }
+
     getHandler() {
 
         const item = this.getParentHandlerOrComponent();
-        console.log(`=== getHandler ${this.getType()} ${item} ===`);
+        console.log(`=== getHandler ${this.getDebugInfo(item)} ===`);
         const result = item.getHandler();
         if (result) return result;
 

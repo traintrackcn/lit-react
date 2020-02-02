@@ -54,7 +54,6 @@ function () {
     value: function isPath() {
       var ctx = this.get();
       if (Array.isArray(ctx)) return true;
-      if (ctx.path) return true;
       return false;
     }
   }, {
@@ -64,31 +63,31 @@ function () {
       if (this.isPath()) return ctx;
       var reason = "Invalid path -> ".concat(ctx);
       throw new Error(reason);
-    }
+    } // isComponent() {
+    //     const ctx = this.get();
+    //     if (ctx instanceof LITPureComponent) return true;
+    //     return false;
+    // }
+    // getType() {
+    //     if (this.isComponent()) {
+    //         return 'Component';
+    //     }else if (this.isPath()) {
+    //         return 'Path';
+    //     }else{
+    //         return 'Handler';
+    //     }
+    // }
+
   }, {
-    key: "isComponent",
-    value: function isComponent() {
-      var ctx = this.get();
-      if (ctx instanceof _LITPureComponent["default"]) return true;
-      return false;
-    }
-  }, {
-    key: "getComponent",
-    value: function getComponent() {
-      var ctx = this.get();
-      if (this.isComponent()) return ctx;
-      var reason = "Invalid component -> ".concat(ctx);
-      throw new Error(reason);
-    }
-  }, {
-    key: "getType",
-    value: function getType() {
-      if (this.isComponent()) {
-        return 'Component';
-      } else if (this.isPath()) {
-        return 'Path';
-      } else {
-        return 'Handler';
+    key: "getDebugInfo",
+    value: function getDebugInfo(item) {
+      try {
+        var result = item.constructor.name; // console.log('result ->', result);
+
+        return result;
+      } catch (e) {
+        // console.log('e ->', e);
+        return item;
       }
     }
   }, {
@@ -101,10 +100,20 @@ function () {
       return this.get();
     }
   }, {
+    key: "getComponent",
+    value: function getComponent() {
+      var item = this.getParentHandlerOrComponent();
+      console.log("=== getComponent ".concat(this.getDebugInfo(item), " ==="));
+      if (item instanceof _LITPureComponent["default"]) return item;
+      if (item) return item.getComponent();
+      var reason = "Invalid component -> ".concat(ctx);
+      throw new Error(reason);
+    }
+  }, {
     key: "getHandler",
     value: function getHandler() {
       var item = this.getParentHandlerOrComponent();
-      console.log("=== getHandler ".concat(this.getType(), " ").concat(item, " ==="));
+      console.log("=== getHandler ".concat(this.getDebugInfo(item), " ==="));
       var result = item.getHandler();
       if (result) return result;
       var reason = 'Invalid handler';

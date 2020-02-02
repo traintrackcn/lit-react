@@ -33,12 +33,13 @@ describe('test component handler', () => {
 
     });
 
-    it('test getComponent()', () => {
+    it.only('test getComponent()', () => {
         const refComponent = (ref) => {
             const h = ref.getHandler();
-            const c = h.getComponent();
+            const childComponentH = h.getChildComponentHandler();
             // console.log('component ->', c.componentDidMount);
-            expect(c).toBeTruthy();
+            // expect(h.getComponent()).toBeTruthy();
+            expect(childComponentH.getComponent()).toBeTruthy();
         };
 
         Renderer.create(
