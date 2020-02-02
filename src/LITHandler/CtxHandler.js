@@ -60,7 +60,7 @@ export default class {
 
     getComponent() {
         const item = this.getParentHandlerOrComponent();
-        console.log(`=== getComponent ${this.getDebugInfo(item)} ===`);
+        // console.log(`=== getComponent ${this.getDebugInfo(item)} ===`);
         if (item instanceof PureComponent) return item;
         if (item.getComponent) {
             const result = item.getComponent();
@@ -74,7 +74,7 @@ export default class {
     getHandler() {
 
         const item = this.getParentHandlerOrComponent();
-        console.log(`=== getHandler ${this.getDebugInfo(item)} ===`);
+        // console.log(`=== getHandler ${this.getDebugInfo(item)} ===`);
         
         if (item.getHandler) {
             const result = item.getHandler();

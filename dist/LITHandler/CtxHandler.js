@@ -92,8 +92,8 @@ function () {
   }, {
     key: "getComponent",
     value: function getComponent() {
-      var item = this.getParentHandlerOrComponent();
-      console.log("=== getComponent ".concat(this.getDebugInfo(item), " ==="));
+      var item = this.getParentHandlerOrComponent(); // console.log(`=== getComponent ${this.getDebugInfo(item)} ===`);
+
       if (item instanceof _react.PureComponent) return item;
 
       if (item.getComponent) {
@@ -107,8 +107,7 @@ function () {
   }, {
     key: "getHandler",
     value: function getHandler() {
-      var item = this.getParentHandlerOrComponent();
-      console.log("=== getHandler ".concat(this.getDebugInfo(item), " ==="));
+      var item = this.getParentHandlerOrComponent(); // console.log(`=== getHandler ${this.getDebugInfo(item)} ===`);
 
       if (item.getHandler) {
         var result = item.getHandler();
