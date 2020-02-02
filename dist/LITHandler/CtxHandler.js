@@ -11,9 +11,10 @@ var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/cl
 
 var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
 
+var _LITPath = _interopRequireDefault(require("../LITPath"));
+
 var _LITPureComponent = _interopRequireDefault(require("../LITPureComponent"));
 
-// import LITPath from "../LITPath";
 var _default =
 /*#__PURE__*/
 function () {
@@ -51,33 +52,19 @@ function () {
     }
   }, {
     key: "isPath",
-    value: function isPath() {
-      var ctx = this.get();
+    value: function isPath(ctx) {
       if (Array.isArray(ctx)) return true;
+      if (ctx instanceof _LITPath["default"]) return true;
       return false;
     }
   }, {
     key: "getPath",
     value: function getPath() {
       var ctx = this.get();
-      if (this.isPath()) return ctx;
+      if (this.isPath(ctx)) return ctx;
       var reason = "Invalid path -> ".concat(ctx);
       throw new Error(reason);
-    } // isComponent() {
-    //     const ctx = this.get();
-    //     if (ctx instanceof LITPureComponent) return true;
-    //     return false;
-    // }
-    // getType() {
-    //     if (this.isComponent()) {
-    //         return 'Component';
-    //     }else if (this.isPath()) {
-    //         return 'Path';
-    //     }else{
-    //         return 'Handler';
-    //     }
-    // }
-
+    }
   }, {
     key: "getDebugInfo",
     value: function getDebugInfo(item) {
@@ -93,11 +80,15 @@ function () {
   }, {
     key: "getParentHandlerOrComponent",
     value: function getParentHandlerOrComponent() {
-      if (this.isPath()) {
+      var ctx = this.get();
+      var isPath = this.isPath(ctx);
+      console.log('isPath ->', isPath);
+
+      if (isPath) {
         return this.getExtra();
       }
 
-      return this.get();
+      return ctx;
     }
   }, {
     key: "getComponent",
@@ -105,7 +96,12 @@ function () {
       var item = this.getParentHandlerOrComponent();
       console.log("=== getComponent ".concat(this.getDebugInfo(item), " ==="));
       if (item instanceof _LITPureComponent["default"]) return item;
-      if (item) return item.getComponent();
+
+      if (item.getComponent) {
+        var result = item.getComponent();
+        if (result) return result;
+      }
+
       var reason = "Invalid component -> ".concat(ctx);
       throw new Error(reason);
     }
@@ -114,8 +110,12 @@ function () {
     value: function getHandler() {
       var item = this.getParentHandlerOrComponent();
       console.log("=== getHandler ".concat(this.getDebugInfo(item), " ==="));
-      var result = item.getHandler();
-      if (result) return result;
+
+      if (item.getHandler) {
+        var result = item.getHandler();
+        if (result) return result;
+      }
+
       var reason = 'Invalid handler';
       throw Error(reason);
     }

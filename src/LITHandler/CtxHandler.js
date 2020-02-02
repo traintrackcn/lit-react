@@ -1,4 +1,4 @@
-// import LITPath from "../LITPath";
+import LITPath from "../LITPath";
 import LITPureComponent from '../LITPureComponent';
 
 export default class {
@@ -24,36 +24,18 @@ export default class {
         return this._extraCtx;
     }
 
-    isPath() {
-        const ctx = this.get();
+    isPath(ctx) {
         if (Array.isArray(ctx)) return true;
+        if (ctx instanceof LITPath) return true;
         return false;
     }
 
     getPath() {
         const ctx = this.get();
-        if (this.isPath()) return ctx;
+        if (this.isPath(ctx)) return ctx;
         const reason = `Invalid path -> ${ctx}`;
         throw new Error(reason);
     }
-
-    // isComponent() {
-    //     const ctx = this.get();
-    //     if (ctx instanceof LITPureComponent) return true;
-    //     return false;
-    // }
-
-    
-
-    // getType() {
-    //     if (this.isComponent()) {
-    //         return 'Component';
-    //     }else if (this.isPath()) {
-    //         return 'Path';
-    //     }else{
-    //         return 'Handler';
-    //     }
-    // }
 
     getDebugInfo(item) {
         try{
@@ -67,17 +49,23 @@ export default class {
     }
 
     getParentHandlerOrComponent() {
-        if (this.isPath()) {
+        const ctx = this.get();
+        const isPath = this.isPath(ctx);
+        console.log('isPath ->', isPath);
+        if (isPath) {
             return this.getExtra();
         }
-        return this.get();
+        return ctx
     }
 
     getComponent() {
         const item = this.getParentHandlerOrComponent();
         console.log(`=== getComponent ${this.getDebugInfo(item)} ===`);
         if (item instanceof LITPureComponent) return item;
-        if (item) return item.getComponent();
+        if (item.getComponent) {
+            const result = item.getComponent();
+            if (result) return result;
+        }
 
         const reason = `Invalid component -> ${ctx}`;
         throw new Error(reason);
@@ -87,8 +75,11 @@ export default class {
 
         const item = this.getParentHandlerOrComponent();
         console.log(`=== getHandler ${this.getDebugInfo(item)} ===`);
-        const result = item.getHandler();
-        if (result) return result;
+        
+        if (item.getHandler) {
+            const result = item.getHandler();
+            if (result) return result;
+        }
 
         const reason = 'Invalid handler';
         throw Error(reason);

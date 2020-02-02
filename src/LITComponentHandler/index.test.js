@@ -19,7 +19,7 @@ describe('test component handler', () => {
 
             expect(childStateHWithArrayPath.getHandler()).toBe(h);
             expect(childStateHWithObjectPath.getHandler()).toBe(h);
-            // expect(childStateHWithObjectPath.p).toBe();
+            expect(childStateHWithObjectPath.p).toBeTruthy();
             expect(stateHWithoutPath).toBe(stateHWithoutPath);
             expect(childComponentH.getHandler()).toBe(h);
             expect(childH.getHandler()).toBe(h);
@@ -33,12 +33,14 @@ describe('test component handler', () => {
 
     });
 
-    it.only('test getComponent()', () => {
+    // it('test')
+
+    it('test getComponent()', () => {
         const refComponent = (ref) => {
             const h = ref.getHandler();
             const childComponentH = h.getChildComponentHandler();
             // console.log('component ->', c.componentDidMount);
-            // expect(h.getComponent()).toBeTruthy();
+            expect(h.getComponent()).toBeTruthy();
             expect(childComponentH.getComponent()).toBeTruthy();
         };
 
