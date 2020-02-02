@@ -9,25 +9,33 @@ exports["default"] = void 0;
 
 var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
 
+var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
+
 var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
 
 var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
 
 var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
 
-var _LITHandler2 = _interopRequireDefault(require("../../../LITHandler"));
+var _LITBaseHandler2 = _interopRequireDefault(require("../../../LITBaseHandler"));
 
 var CommonHandler =
 /*#__PURE__*/
-function (_LITHandler) {
-  (0, _inherits2["default"])(CommonHandler, _LITHandler);
+function (_LITBaseHandler) {
+  (0, _inherits2["default"])(CommonHandler, _LITBaseHandler);
 
   function CommonHandler() {
     (0, _classCallCheck2["default"])(this, CommonHandler);
     return (0, _possibleConstructorReturn2["default"])(this, (0, _getPrototypeOf2["default"])(CommonHandler).apply(this, arguments));
   }
 
+  (0, _createClass2["default"])(CommonHandler, [{
+    key: "getCustomHandler",
+    value: function getCustomHandler() {
+      return this.getHandler('getCustomHandler');
+    }
+  }]);
   return CommonHandler;
-}(_LITHandler2["default"]);
+}(_LITBaseHandler2["default"]);
 
 exports["default"] = CommonHandler;

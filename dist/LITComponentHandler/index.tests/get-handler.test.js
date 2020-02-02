@@ -52,7 +52,7 @@ it('test get handler from child common handler', function () {
     ref: ref
   }));
 });
-it.only('test get custom handler from child handler', function () {
+it('test get custom handler from child handler', function () {
   var h = new _TopHandler["default"]();
   var childH = h.getChildHandler();
   expect(childH.getCustomHandler()).toBe('ok');

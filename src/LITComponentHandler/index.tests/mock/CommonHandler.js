@@ -1,5 +1,9 @@
-import LITHandler from "../../../LITHandler";
+import LITBaseHandler from "../../../LITBaseHandler";
 
-export default class CommonHandler extends LITHandler {
+export default class CommonHandler extends LITBaseHandler {
 
+
+    getCustomHandler() {
+        return this.getHandler('getCustomHandler');
+    }
 }

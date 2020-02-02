@@ -24,6 +24,10 @@ function () {
 
   (0, _createClass2["default"])(_default, [{
     key: "set",
+    // constructor() {
+    //     this.getHandler = this.getHandler.bind(this);
+    //     this._getHandler = this._getHandler.bind(this);
+    // }
     value: function set(ctx, extraCtx) {
       this._ctx = ctx;
       this._extraCtx = extraCtx;
@@ -106,29 +110,25 @@ function () {
     }
   }, {
     key: "getHandler",
-    value: function getHandler() {
-      return this._getHandler('getHandler'); // const item = this.getParentHandlerOrComponent();
-      // // console.log(`=== getHandler ${this.getDebugInfo(item)} ===`);
-      // if (item.getHandler) {
-      //     const result = item.getHandler();
-      //     if (result) return result;
-      // }
-      // const reason = 'Invalid handler';
-      // throw Error(reason);
+    value: function getHandler(fnName) {
+      return this._getHandler(fnName);
     }
   }, {
     key: "_getHandler",
     value: function _getHandler(fnName) {
-      var item = this.getParentHandlerOrComponent(); // console.log(`=== getHandler ${this.getDebugInfo(item)} ===`);
-
-      var fn = item[fnName];
+      if (!fnName) fnName = 'getHandler';
+      var parent = this.getParentHandlerOrComponent();
+      console.log("=== search handler from parent -> ".concat(this.getDebugInfo(parent), " ==="));
+      var fn = parent[fnName];
 
       if (fn) {
-        fn = fn.bind(this); // const result = item.getHandler();
-        // const fn = item
-
+        fn = fn.bind(parent);
         var result = fn();
-        if (result) return result;
+
+        if (result) {
+          console.log("=== found handler -> ".concat(result.constructor.name, " ==="));
+          return result;
+        }
       }
 
       var reason = "Invalid handler via ".concat(fnName);

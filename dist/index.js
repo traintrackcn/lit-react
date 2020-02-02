@@ -58,7 +58,7 @@ Object.defineProperty(exports, "LITComponentHandler", {
 Object.defineProperty(exports, "LITBaseHandler", {
   enumerable: true,
   get: function get() {
-    return _LITHandler["default"];
+    return _LITBaseHandler["default"];
   }
 });
 Object.defineProperty(exports, "Collection", {
@@ -95,7 +95,7 @@ var _LITStateHandler = _interopRequireDefault(require("./LITStateHandler"));
 
 var _LITComponentHandler = _interopRequireDefault(require("./LITComponentHandler"));
 
-var _LITHandler = _interopRequireDefault(require("./LITHandler"));
+var _LITBaseHandler = _interopRequireDefault(require("./LITBaseHandler"));
 
 var _Collection = _interopRequireDefault(require("./Collection"));
 

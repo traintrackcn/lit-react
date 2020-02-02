@@ -1,7 +1,7 @@
 import StateHandler from './state/Handler';
-import LITHandler from '../LITHandler';
+import LITBaseHandler from '../LITBaseHandler';
 
-export default class extends LITHandler{
+export default class LITStateHandler extends LITBaseHandler{
     
     constructor(path, ctx){
         super(path, ctx);

@@ -1,6 +1,6 @@
-import LITHandler from "../LITHandler";
+import LITBaseHandler from "../LITBaseHandler";
 
-export default class extends LITHandler{
+export default class extends LITBaseHandler{
 
     constructor(component) {
         super(component)

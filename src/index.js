@@ -6,7 +6,7 @@ import LITCommonPath from './LITCommonPath';
 import LITHandler from './LITStateHandler';
 import LITStateHandler from './LITStateHandler';
 import LITComponentHandler from './LITComponentHandler';
-import LITBaseHandler from './LITHandler';
+import LITBaseHandler from './LITBaseHandler';
 import Collection from './Collection';
 import s, { store } from './s';
 

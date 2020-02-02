@@ -3,6 +3,11 @@ import { PureComponent } from "react";
 
 export default class {
 
+    // constructor() {
+    //     this.getHandler = this.getHandler.bind(this);
+    //     this._getHandler = this._getHandler.bind(this);
+    // }
+
     set(ctx, extraCtx) {
         this._ctx = ctx;
         this._extraCtx = extraCtx;
@@ -71,19 +76,27 @@ export default class {
         throw new Error(reason);
     }
 
-    getHandler() {
+    getHandler(fnName) {
+        return this._getHandler(fnName);
+    }
 
-        const item = this.getParentHandlerOrComponent();
-        // console.log(`=== getHandler ${this.getDebugInfo(item)} ===`);
-        
-        if (item.getHandler) {
-            const result = item.getHandler();
-            if (result) return result;
+    _getHandler(fnName) {
+        if (!fnName) fnName = 'getHandler';
+
+        const parent = this.getParentHandlerOrComponent();
+        console.log(`=== search handler from parent -> ${this.getDebugInfo(parent)} ===`);
+        var fn = parent[fnName];
+        if (fn) {
+            fn = fn.bind(parent);
+            const result = fn();
+            if (result) {
+                console.log(`=== found handler -> ${result.constructor.name} ===`)
+                return result;
+            }
         }
 
-        const reason = 'Invalid handler';
+        const reason = `Invalid handler via ${fnName}`;
         throw Error(reason);
-
     }
 
 }

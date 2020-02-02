@@ -49,11 +49,9 @@ function () {
 
   }, {
     key: "getHandler",
-    value: function getHandler() {
-      console.log('this ->', this);
-      console.log('this.getCtxHandler ->', this.getCtxHandler);
+    value: function getHandler(fnName) {
       var ctxH = this.getCtxHandler();
-      return ctxH.getHandler();
+      return ctxH.getHandler(fnName);
     }
   }]);
   return LITBaseHandler;

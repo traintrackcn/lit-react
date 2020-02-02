@@ -21,12 +21,12 @@ var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/ge
 
 var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
 
-var _LITHandler2 = _interopRequireDefault(require("../LITHandler"));
+var _LITBaseHandler2 = _interopRequireDefault(require("../LITBaseHandler"));
 
 var _default =
 /*#__PURE__*/
-function (_LITHandler) {
-  (0, _inherits2["default"])(_default, _LITHandler);
+function (_LITBaseHandler) {
+  (0, _inherits2["default"])(_default, _LITBaseHandler);
 
   function _default(component) {
     (0, _classCallCheck2["default"])(this, _default);
@@ -147,6 +147,6 @@ function (_LITHandler) {
     }
   }]);
   return _default;
-}(_LITHandler2["default"]);
+}(_LITBaseHandler2["default"]);
 
 exports["default"] = _default;

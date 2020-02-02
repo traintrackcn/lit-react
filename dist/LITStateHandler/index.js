@@ -19,25 +19,25 @@ var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits
 
 var _Handler = _interopRequireDefault(require("./state/Handler"));
 
-var _LITHandler2 = _interopRequireDefault(require("../LITHandler"));
+var _LITBaseHandler2 = _interopRequireDefault(require("../LITBaseHandler"));
 
-var _default =
+var LITStateHandler =
 /*#__PURE__*/
-function (_LITHandler) {
-  (0, _inherits2["default"])(_default, _LITHandler);
+function (_LITBaseHandler) {
+  (0, _inherits2["default"])(LITStateHandler, _LITBaseHandler);
 
-  function _default(path, ctx) {
+  function LITStateHandler(path, ctx) {
     var _this;
 
-    (0, _classCallCheck2["default"])(this, _default);
-    _this = (0, _possibleConstructorReturn2["default"])(this, (0, _getPrototypeOf2["default"])(_default).call(this, path, ctx));
+    (0, _classCallCheck2["default"])(this, LITStateHandler);
+    _this = (0, _possibleConstructorReturn2["default"])(this, (0, _getPrototypeOf2["default"])(LITStateHandler).call(this, path, ctx));
 
     _this.setupPath();
 
     return _this;
   }
 
-  (0, _createClass2["default"])(_default, [{
+  (0, _createClass2["default"])(LITStateHandler, [{
     key: "setupPath",
     value: function setupPath() {
       try {
@@ -260,7 +260,7 @@ function (_LITHandler) {
       return this._s;
     }
   }]);
-  return _default;
-}(_LITHandler2["default"]);
+  return LITStateHandler;
+}(_LITBaseHandler2["default"]);
 
-exports["default"] = _default;
+exports["default"] = LITStateHandler;

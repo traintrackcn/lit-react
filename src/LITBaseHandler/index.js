@@ -1,6 +1,6 @@
 import CtxHandler from './CtxHandler';
 
-export default class {
+export default class LITBaseHandler {
 
     constructor(ctx, extraCtx) {
         const h = this.getCtxHandler();
@@ -27,9 +27,9 @@ export default class {
     /**
      * @description get top handler
      */
-    getHandler() {
+    getHandler(fnName) {
         const ctxH = this.getCtxHandler();
-        return ctxH.getHandler();
+        return ctxH.getHandler(fnName);
     }
 
 }

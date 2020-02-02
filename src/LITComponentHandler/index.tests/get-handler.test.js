@@ -46,7 +46,7 @@ it('test get handler from child common handler', () => {
 
 });
 
-it.only('test get custom handler from child handler', () => {
+it('test get custom handler from child handler', () => {
     const h = new TopHandler();
     const childH = h.getChildHandler();
     expect(childH.getCustomHandler()).toBe('ok');
