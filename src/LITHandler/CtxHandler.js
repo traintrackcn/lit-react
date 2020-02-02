@@ -1,5 +1,5 @@
 import LITPath from "../LITPath";
-import LITPureComponent from '../LITPureComponent';
+import { PureComponent } from "react";
 
 export default class {
 
@@ -61,7 +61,7 @@ export default class {
     getComponent() {
         const item = this.getParentHandlerOrComponent();
         console.log(`=== getComponent ${this.getDebugInfo(item)} ===`);
-        if (item instanceof LITPureComponent) return item;
+        if (item instanceof PureComponent) return item;
         if (item.getComponent) {
             const result = item.getComponent();
             if (result) return result;

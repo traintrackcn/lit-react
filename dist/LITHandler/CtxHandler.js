@@ -13,7 +13,7 @@ var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/creat
 
 var _LITPath = _interopRequireDefault(require("../LITPath"));
 
-var _LITPureComponent = _interopRequireDefault(require("../LITPureComponent"));
+var _react = require("react");
 
 var _default =
 /*#__PURE__*/
@@ -94,7 +94,7 @@ function () {
     value: function getComponent() {
       var item = this.getParentHandlerOrComponent();
       console.log("=== getComponent ".concat(this.getDebugInfo(item), " ==="));
-      if (item instanceof _LITPureComponent["default"]) return item;
+      if (item instanceof _react.PureComponent) return item;
 
       if (item.getComponent) {
         var result = item.getComponent();
