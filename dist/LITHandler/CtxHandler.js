@@ -61,7 +61,7 @@ function () {
     value: function getPath() {
       var ctx = this.get();
       if (this.isPath()) return ctx;
-      var reason = 'Invalid path ' + ctx;
+      var reason = "Invalid path -> ".concat(ctx);
       throw new Error(reason);
     }
   }, {
@@ -76,7 +76,7 @@ function () {
     value: function getComponent() {
       var ctx = this.get();
       if (this.isComponent()) return ctx;
-      var reason = 'Invalid component';
+      var reason = "Invalid component -> ".concat(ctx);
       throw new Error(reason);
     }
   }, {

@@ -33,7 +33,7 @@ export default class {
     getPath() {
         const ctx = this.get();
         if (this.isPath()) return ctx;
-        const reason = 'Invalid path '+ctx;
+        const reason = `Invalid path -> ${ctx}`;
         throw new Error(reason);
     }
 
@@ -46,7 +46,7 @@ export default class {
     getComponent() {
         const ctx = this.get();
         if (this.isComponent()) return ctx;
-        const reason = 'Invalid component';
+        const reason = `Invalid component -> ${ctx}`;
         throw new Error(reason);
     }
 
