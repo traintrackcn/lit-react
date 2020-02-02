@@ -11,8 +11,9 @@ var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/cl
 
 var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
 
-var _LITPath = _interopRequireDefault(require("../LITPath"));
+var _LITPureComponent = _interopRequireDefault(require("../LITPureComponent"));
 
+// import LITPath from "../LITPath";
 var _default =
 /*#__PURE__*/
 function () {
@@ -68,7 +69,7 @@ function () {
     key: "isComponent",
     value: function isComponent() {
       var ctx = this.get();
-      if (ctx.componentDidMount) return true;
+      if (ctx instanceof _LITPureComponent["default"]) return true;
       return false;
     }
   }, {

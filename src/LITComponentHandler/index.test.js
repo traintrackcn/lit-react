@@ -33,20 +33,28 @@ describe('test component handler', () => {
 
     });
 
+    it('test getComponent()', () => {
+        const refComponent = (ref) => {
+            const h = ref.getHandler();
+            const c = h.getComponent();
+            // console.log('component ->', c.componentDidMount);
+            expect(c).toBeTruthy();
+        };
+
+        Renderer.create(
+            <TestComponent ref={refComponent}/>
+        );
+
+    });
+
 });
 
-class TestComponent extends LITPureComponent {
+class BaseComponent extends LITPureComponent {
 
-    componentDidMount() {
-        console.log('componentDidMount');
-    }
+}
 
-    getHandler() {
-        if (!this._handler) {
-            this._handler = new TopHandler(this);
-        }
-        return this._handler;
-    }
+class TestComponent extends BaseComponent {
+
 
     render() {
         console.log('render');
@@ -57,9 +65,19 @@ class TestComponent extends LITPureComponent {
         )
     }
 
+    getHandler() {
+        if (!this._handler) {
+            this._handler = new TopHandler(this);
+        }
+        return this._handler;
+    }
+
 }
 
+
+
 class TopHandler extends LITComponentHandler {
+
 
     getChildStateHandlerWithArrayPath() {
         if (!this._state) {

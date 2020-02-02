@@ -2,9 +2,9 @@
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
-
 var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
+
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
 
 var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
 
@@ -47,12 +47,37 @@ describe('test component handler', function () {
       ref: refComponent
     }));
   });
+  it('test getComponent()', function () {
+    var refComponent = function refComponent(ref) {
+      var h = ref.getHandler();
+      var c = h.getComponent(); // console.log('component ->', c.componentDidMount);
+
+      expect(c).toBeTruthy();
+    };
+
+    _reactTestRenderer["default"].create(_react["default"].createElement(TestComponent, {
+      ref: refComponent
+    }));
+  });
 });
+
+var BaseComponent =
+/*#__PURE__*/
+function (_LITPureComponent) {
+  (0, _inherits2["default"])(BaseComponent, _LITPureComponent);
+
+  function BaseComponent() {
+    (0, _classCallCheck2["default"])(this, BaseComponent);
+    return (0, _possibleConstructorReturn2["default"])(this, (0, _getPrototypeOf2["default"])(BaseComponent).apply(this, arguments));
+  }
+
+  return BaseComponent;
+}(_LITPureComponent2["default"]);
 
 var TestComponent =
 /*#__PURE__*/
-function (_LITPureComponent) {
-  (0, _inherits2["default"])(TestComponent, _LITPureComponent);
+function (_BaseComponent) {
+  (0, _inherits2["default"])(TestComponent, _BaseComponent);
 
   function TestComponent() {
     (0, _classCallCheck2["default"])(this, TestComponent);
@@ -60,9 +85,10 @@ function (_LITPureComponent) {
   }
 
   (0, _createClass2["default"])(TestComponent, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      console.log('componentDidMount');
+    key: "render",
+    value: function render() {
+      console.log('render');
+      return _react["default"].createElement("div", null, "test");
     }
   }, {
     key: "getHandler",
@@ -73,15 +99,9 @@ function (_LITPureComponent) {
 
       return this._handler;
     }
-  }, {
-    key: "render",
-    value: function render() {
-      console.log('render');
-      return _react["default"].createElement("div", null, "test");
-    }
   }]);
   return TestComponent;
-}(_LITPureComponent2["default"]);
+}(BaseComponent);
 
 var TopHandler =
 /*#__PURE__*/

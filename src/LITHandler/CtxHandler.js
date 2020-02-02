@@ -1,4 +1,5 @@
-import LITPath from "../LITPath";
+// import LITPath from "../LITPath";
+import LITPureComponent from '../LITPureComponent';
 
 export default class {
 
@@ -39,7 +40,7 @@ export default class {
 
     isComponent() {
         const ctx = this.get();
-        if (ctx.componentDidMount) return true;
+        if (ctx instanceof LITPureComponent) return true;
         return false;
     }
 
