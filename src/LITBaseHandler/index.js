@@ -5,6 +5,8 @@ export default class LITBaseHandler {
     constructor(ctx, extraCtx) {
         const h = this.getCtxHandler();
         h.set(ctx, extraCtx);
+
+        this.className = this.constructor.name;
     }
 
     getCtxHandler() {

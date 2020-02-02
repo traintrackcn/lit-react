@@ -20,6 +20,7 @@ function () {
     (0, _classCallCheck2["default"])(this, LITBaseHandler);
     var h = this.getCtxHandler();
     h.set(ctx, extraCtx);
+    this.className = this.constructor.name;
   }
 
   (0, _createClass2["default"])(LITBaseHandler, [{
