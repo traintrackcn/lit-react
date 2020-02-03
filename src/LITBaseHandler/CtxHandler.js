@@ -84,7 +84,7 @@ export default class {
         if (!fnName) fnName = 'getHandler';
 
         const parent = this.getParentHandlerOrComponent();
-        // console.log(`=== search ${fnName} from parent -> ${this.getDebugInfo(parent)} ===`);
+        console.log(`=== search ${fnName} from parent -> ${this.getDebugInfo(parent)} ===`);
         var fn = parent[fnName];
         if (fn) {
             fn = fn.bind(parent);
