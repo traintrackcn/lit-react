@@ -117,8 +117,8 @@ function () {
     key: "_getHandler",
     value: function _getHandler(fnName) {
       if (!fnName) fnName = 'getHandler';
-      var parent = this.getParentHandlerOrComponent();
-      console.log("=== search ".concat(fnName, " from parent -> ").concat(this.getDebugInfo(parent), " ==="));
+      var parent = this.getParentHandlerOrComponent(); // console.log(`=== search ${fnName} from parent -> ${this.getDebugInfo(parent)} ===`);
+
       var fn = parent[fnName];
 
       if (fn) {
@@ -126,7 +126,7 @@ function () {
         var result = fn();
 
         if (result) {
-          console.log("=== found handler -> ".concat(result.constructor.name, " ==="));
+          // console.log(`=== found handler -> ${result.constructor.name} ===`)
           return result;
         }
       }
