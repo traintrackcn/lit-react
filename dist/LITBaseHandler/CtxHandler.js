@@ -37,7 +37,7 @@ function () {
     value: function get() {
       // can be related component, parent component, parent handler, path
       if (!this._ctx) {
-        var reason = 'Invalid handler ctx';
+        var reason = "Invalid handler ctx";
         throw new Error(reason);
       }
 
@@ -126,7 +126,7 @@ function () {
         var result = fn();
 
         if (result) {
-          // console.log(`=== found handler -> ${result.constructor.name} ===`)
+          console.log("=== found handler -> ".concat(result.constructor.name, " ==="));
           return result;
         }
       }

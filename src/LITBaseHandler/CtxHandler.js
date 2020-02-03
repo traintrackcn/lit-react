@@ -15,7 +15,7 @@ export default class {
 
     get() { // can be related component, parent component, parent handler, path
         if (!this._ctx) {
-            const reason = 'Invalid handler ctx';
+            const reason = `Invalid handler ctx`;
             throw new Error(reason);
         }
         return this._ctx;
@@ -90,7 +90,7 @@ export default class {
             fn = fn.bind(parent);
             const result = fn();
             if (result) {
-                // console.log(`=== found handler -> ${result.constructor.name} ===`)
+                console.log(`=== found handler -> ${result.constructor.name} ===`)
                 return result;
             }
         }
