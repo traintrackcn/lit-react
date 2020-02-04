@@ -87,9 +87,6 @@ export default class LITStateHandler extends LITBaseHandler{
         return state.get(key);
     }
 
-    /**
-     * @deprecated
-     */
     setKey(key, value){
         const h = this.getStateHandler();
         var state = h.get();

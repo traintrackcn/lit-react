@@ -114,10 +114,6 @@ function (_LITBaseHandler) {
       var state = h.get();
       return state.get(key);
     }
-    /**
-     * @deprecated
-     */
-
   }, {
     key: "setKey",
     value: function setKey(key, value) {

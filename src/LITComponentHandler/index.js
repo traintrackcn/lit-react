@@ -1,4 +1,6 @@
 import LITBaseHandler from "../LITBaseHandler";
+import { PureComponent } from "react";
+import { connect } from "react-redux";
 
 export default class extends LITBaseHandler{
 
@@ -79,6 +81,50 @@ export default class extends LITBaseHandler{
 
     reRender() { // reset and render
 
+    }
+
+    getStateListenerTarget() {
+        return;
+    }
+
+    getClassName() {
+        try{
+            return this.constructor.name;
+        }catch(e) {
+            return 'Invalid Class Name';
+        }
+    }
+
+    getStateListenerClass() {
+        if (!this._listener) {
+            const h = this.getHandler();
+            this._listener = this._getStateListenerClass(h);
+        }
+        return this._listener;
+    }
+
+    _getStateListenerClass(h) {
+
+        class StateListener extends PureComponent{
+    
+            componentDidUpdate() {
+                h.render();
+            }
+    
+            render() {
+                console.log(h.getClassName(), 'state listener detected target ->', this.props.target);
+                return null
+            }
+        }
+    
+        const mapStateToProps = () => {
+            const target = h.getStateListenerTarget();
+            return { target };
+        };
+    
+        return connect(
+            mapStateToProps
+        )(StateListener);
     }
 
 }

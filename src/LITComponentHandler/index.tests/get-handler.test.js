@@ -1,7 +1,7 @@
 import Renderer from 'react-test-renderer';
+import React from 'react';
 import StateHandler from './mock/StateHandler';
 import TopComponent from './mock/TopComponent';
-import React from 'react';
 import TopHandler from './mock/TopHandler';
 it('test get handler from child state handler', () => {
     const ref = (ref) => {

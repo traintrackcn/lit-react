@@ -60,6 +60,10 @@ export default class LITReducer {
         };
     }
 
+    // action() {
+    //     return this.reducer(state, action);
+    // }
+
     reducer(state, action) {
 
         // return undefined;

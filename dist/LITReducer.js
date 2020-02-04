@@ -79,7 +79,10 @@ function () {
         type: 'DELETE',
         path: path
       };
-    }
+    } // action() {
+    //     return this.reducer(state, action);
+    // }
+
   }, {
     key: "reducer",
     value: function reducer(state, action) {

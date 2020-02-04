@@ -4,11 +4,11 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 
 var _reactTestRenderer = _interopRequireDefault(require("react-test-renderer"));
 
+var _react = _interopRequireDefault(require("react"));
+
 var _StateHandler = _interopRequireDefault(require("./mock/StateHandler"));
 
 var _TopComponent = _interopRequireDefault(require("./mock/TopComponent"));
-
-var _react = _interopRequireDefault(require("react"));
 
 var _TopHandler = _interopRequireDefault(require("./mock/TopHandler"));
 

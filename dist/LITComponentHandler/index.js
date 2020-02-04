@@ -23,6 +23,10 @@ var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits
 
 var _LITBaseHandler2 = _interopRequireDefault(require("../LITBaseHandler"));
 
+var _react = require("react");
+
+var _reactRedux = require("react-redux");
+
 var _default =
 /*#__PURE__*/
 function (_LITBaseHandler) {
@@ -144,6 +148,67 @@ function (_LITBaseHandler) {
   }, {
     key: "reRender",
     value: function reRender() {// reset and render
+    }
+  }, {
+    key: "getStateListenerTarget",
+    value: function getStateListenerTarget() {
+      return;
+    }
+  }, {
+    key: "getClassName",
+    value: function getClassName() {
+      try {
+        return this.constructor.name;
+      } catch (e) {
+        return 'Invalid Class Name';
+      }
+    }
+  }, {
+    key: "getStateListenerClass",
+    value: function getStateListenerClass() {
+      if (!this._listener) {
+        var h = this.getHandler();
+        this._listener = this._getStateListenerClass(h);
+      }
+
+      return this._listener;
+    }
+  }, {
+    key: "_getStateListenerClass",
+    value: function _getStateListenerClass(h) {
+      var StateListener =
+      /*#__PURE__*/
+      function (_PureComponent) {
+        (0, _inherits2["default"])(StateListener, _PureComponent);
+
+        function StateListener() {
+          (0, _classCallCheck2["default"])(this, StateListener);
+          return (0, _possibleConstructorReturn2["default"])(this, (0, _getPrototypeOf2["default"])(StateListener).apply(this, arguments));
+        }
+
+        (0, _createClass2["default"])(StateListener, [{
+          key: "componentDidUpdate",
+          value: function componentDidUpdate() {
+            h.render();
+          }
+        }, {
+          key: "render",
+          value: function render() {
+            console.log(h.getClassName(), 'state listener detected target ->', this.props.target);
+            return null;
+          }
+        }]);
+        return StateListener;
+      }(_react.PureComponent);
+
+      var mapStateToProps = function mapStateToProps() {
+        var target = h.getStateListenerTarget();
+        return {
+          target: target
+        };
+      };
+
+      return (0, _reactRedux.connect)(mapStateToProps)(StateListener);
     }
   }]);
   return _default;
