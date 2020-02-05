@@ -1,4 +1,4 @@
-import StateHandler from './state/Handler';
+import _StateHandler from './_state/Handler';
 import LITBaseHandler from '../LITBaseHandler';
 
 export default class LITStateHandler extends LITBaseHandler{
@@ -19,7 +19,7 @@ export default class LITStateHandler extends LITBaseHandler{
     getStateHandler() {
         if (!this._state) {
             const path = this.getPath();
-            this._state = new StateHandler(path);
+            this._state = new _StateHandler(path);
             this.push(this._state);
         }
         return this._state;
@@ -48,7 +48,8 @@ export default class LITStateHandler extends LITBaseHandler{
     }
 
     get s(){
-        return this._s;
+        if (this._s) return this._s;
+        return this.getStateStore();
     }
 
     get(){

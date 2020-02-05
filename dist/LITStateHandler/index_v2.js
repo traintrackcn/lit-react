@@ -17,21 +17,21 @@ var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/ge
 
 var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
 
-var _Handler = _interopRequireDefault(require("./state/Handler"));
+var _Handler = _interopRequireDefault(require("./_state/Handler"));
 
 var _LITBaseHandler2 = _interopRequireDefault(require("../LITBaseHandler"));
 
-var LITStateHandler =
+var LITStateHandlerV2 =
 /*#__PURE__*/
 function (_LITBaseHandler) {
-  (0, _inherits2["default"])(LITStateHandler, _LITBaseHandler);
+  (0, _inherits2["default"])(LITStateHandlerV2, _LITBaseHandler);
 
-  function LITStateHandler(path, ctx) {
-    (0, _classCallCheck2["default"])(this, LITStateHandler);
-    return (0, _possibleConstructorReturn2["default"])(this, (0, _getPrototypeOf2["default"])(LITStateHandler).call(this, path, ctx));
+  function LITStateHandlerV2(path, ctx) {
+    (0, _classCallCheck2["default"])(this, LITStateHandlerV2);
+    return (0, _possibleConstructorReturn2["default"])(this, (0, _getPrototypeOf2["default"])(LITStateHandlerV2).call(this, path, ctx));
   }
 
-  (0, _createClass2["default"])(LITStateHandler, [{
+  (0, _createClass2["default"])(LITStateHandlerV2, [{
     key: "get",
     value: function get() {
       var h = this.getStateHandler();
@@ -126,7 +126,7 @@ function (_LITBaseHandler) {
       return this._state;
     }
   }]);
-  return LITStateHandler;
+  return LITStateHandlerV2;
 }(_LITBaseHandler2["default"]);
 
-exports["default"] = LITStateHandler;
+exports["default"] = LITStateHandlerV2;

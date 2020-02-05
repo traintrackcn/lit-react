@@ -2,46 +2,45 @@
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
+var _TopHandler = _interopRequireDefault(require("./mock/TopHandler"));
+
+var _index_v = _interopRequireDefault(require("./index_v2"));
+
 var _ = _interopRequireDefault(require("."));
 
-var _s = _interopRequireDefault(require("../s"));
-
-var _p = _interopRequireDefault(require("./mock/p"));
-
-var _immutable = require("immutable");
-
-var h = new _["default"](_p["default"].t);
-h.s = _s["default"];
 describe('test state handler', function () {
-  it('test set_collection', function () {
-    h.del();
-    var collection = ['a', 'b', 'c'];
-    h.set_collection((0, _immutable.fromJS)(collection));
-    expect(h.get()).toMatchSnapshot();
-    h.select(1);
-    expect(h.getValue()).toMatchSnapshot();
-    expect(h.get()).toMatchSnapshot();
-  });
-  it('test getPath', function () {
-    var expected = '["r","t"]';
-    expect(JSON.stringify(h.getPath())).toBe(expected);
-  });
-  it('test set_value', function () {
-    h.del();
-    var value = {
-      'key': 'value'
-    };
-    h.setValue(value);
-    expect(h.get()).toMatchSnapshot();
-    expect(h.getValue()).toMatchSnapshot();
-  });
-  it('test s ops', function () {
-    _s["default"].set(_p["default"].a, 'a');
+  var clsArr = [_index_v["default"], _["default"]];
 
-    expect(_s["default"].get(_p["default"].a)).toMatchSnapshot();
+  var _loop = function _loop(index) {
+    var cls = clsArr[index];
+    var topH = new _TopHandler["default"](null, null, cls);
+    var h = topH.getH();
+    var hName = h.getClassName();
+    it("test ".concat(hName, " setCollection"), function () {
+      h.del();
+      var collection = ['a', 'b', 'c'];
+      h.setCollection(collection);
+      expect(h.get()).toMatchSnapshot();
+      h.select(1);
+      expect(h.getValue()).toMatchSnapshot();
+      expect(h.get()).toMatchSnapshot();
+    });
+    it("test ".concat(hName, " getPath"), function () {
+      var expected = '["r","t"]';
+      expect(JSON.stringify(h.getPath())).toBe(expected);
+    });
+    it("test ".concat(hName, " set_value"), function () {
+      h.del();
+      var value = {
+        'key': 'value'
+      };
+      h.setValue(value);
+      expect(h.get()).toMatchSnapshot();
+      expect(h.getValue()).toMatchSnapshot();
+    });
+  };
 
-    _s["default"].set(_p["default"].a, undefined);
-
-    expect(_s["default"].get(_p["default"].a)).toBeFalsy();
-  });
+  for (var index = 0; index < clsArr.length; index++) {
+    _loop(index);
+  }
 });

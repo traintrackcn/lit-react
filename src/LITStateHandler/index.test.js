@@ -1,53 +1,53 @@
-import Handler from '.';
-import s from '../s';
-import p from './mock/p';
-import { fromJS } from 'immutable';
 
-const h = new Handler(p.t);
-h.s = s;
+import TopHandler from './mock/TopHandler';
+import LITStateHandlerV2 from './index_v2';
+import LITStateHandler from '.';
 
 describe('test state handler', () => {
 
-
-    it('test set_collection', () => {
-
-        h.del();
-
-        const collection = [
-            'a', 'b', 'c'
-        ];
-        h.set_collection(fromJS(collection));
-        expect(h.get()).toMatchSnapshot();
-        h.select(1);
-        expect(h.getValue()).toMatchSnapshot();
-
-        expect(h.get()).toMatchSnapshot();
-    });
-
-    it('test getPath', () => {
-        const expected = '["r","t"]';
-        expect(JSON.stringify(h.getPath())).toBe(expected);
-    })
-
-    it('test set_value', () => {
-
-        h.del();
-
-        const value = { 'key': 'value' }
-        h.setValue(value);
-        expect(h.get()).toMatchSnapshot();
-        expect(h.getValue()).toMatchSnapshot();
-    });
+    const clsArr = [LITStateHandlerV2, LITStateHandler];
+    for (let index = 0; index < clsArr.length; index++) {
+        const cls = clsArr[index];
+        const topH = new TopHandler(null, null, cls);
+        const h = topH.getH();
+        const hName = h.getClassName();
 
 
-    it('test s ops', () => {
-        s.set(p.a, 'a');
-        expect(s.get(p.a)).toMatchSnapshot();
-        s.set(p.a, undefined);
-        expect(s.get(p.a)).toBeFalsy();
-    });
+        it(`test ${hName} setCollection`, () => {
+
+            h.del();
+    
+            const collection = [
+                'a', 'b', 'c'
+            ];
+            h.setCollection(collection);
+            expect(h.get()).toMatchSnapshot();
+            h.select(1);
+            expect(h.getValue()).toMatchSnapshot();
+    
+            expect(h.get()).toMatchSnapshot();
+        });
+    
+        it(`test ${hName} getPath`, () => {
+            const expected = '["r","t"]';
+            expect(JSON.stringify(h.getPath())).toBe(expected);
+        })
+    
+        it(`test ${hName} set_value`, () => {
+    
+            h.del();
+    
+            const value = { 'key': 'value' }
+            h.setValue(value);
+            expect(h.get()).toMatchSnapshot();
+            expect(h.getValue()).toMatchSnapshot();
+        });
+
+        
+    }
 
 
 });
+
 
 

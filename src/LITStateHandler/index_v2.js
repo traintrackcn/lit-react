@@ -1,7 +1,7 @@
-import StateHandler from './state/Handler';
+import _StateHandler from './_state/Handler';
 import LITBaseHandler from '../LITBaseHandler';
 
-export default class LITStateHandler extends LITBaseHandler{
+export default class LITStateHandlerV2 extends LITBaseHandler{
     
     constructor(path, ctx){
         super(path, ctx);
@@ -80,7 +80,7 @@ export default class LITStateHandler extends LITBaseHandler{
     getStateHandler() {
         if (!this._state) {
             const path = this.getPath();
-            this._state = new StateHandler(path);
+            this._state = new _StateHandler(path);
             this._state.s = this.getStateStore();
         }
         return this._state;

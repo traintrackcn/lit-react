@@ -1,8 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`test state handler test s ops 1`] = `"a"`;
+exports[`test state handler test LITStateHandler set_value 1`] = `
+Immutable.Map {
+  "value": Immutable.Map {
+    "key": "value",
+  },
+}
+`;
 
-exports[`test state handler test set_collection 1`] = `
+exports[`test state handler test LITStateHandler set_value 2`] = `
+Immutable.Map {
+  "key": "value",
+}
+`;
+
+exports[`test state handler test LITStateHandler setCollection 1`] = `
 Immutable.Map {
   "collection": Immutable.List [
     "a",
@@ -12,9 +24,9 @@ Immutable.Map {
 }
 `;
 
-exports[`test state handler test set_collection 2`] = `"b"`;
+exports[`test state handler test LITStateHandler setCollection 2`] = `"b"`;
 
-exports[`test state handler test set_collection 3`] = `
+exports[`test state handler test LITStateHandler setCollection 3`] = `
 Immutable.Map {
   "collection": Immutable.List [
     "a",
@@ -26,7 +38,7 @@ Immutable.Map {
 }
 `;
 
-exports[`test state handler test set_value 1`] = `
+exports[`test state handler test LITStateHandlerV2 set_value 1`] = `
 Immutable.Map {
   "value": Immutable.Map {
     "key": "value",
@@ -34,8 +46,32 @@ Immutable.Map {
 }
 `;
 
-exports[`test state handler test set_value 2`] = `
+exports[`test state handler test LITStateHandlerV2 set_value 2`] = `
 Immutable.Map {
   "key": "value",
+}
+`;
+
+exports[`test state handler test LITStateHandlerV2 setCollection 1`] = `
+Immutable.Map {
+  "collection": Immutable.List [
+    "a",
+    "b",
+    "c",
+  ],
+}
+`;
+
+exports[`test state handler test LITStateHandlerV2 setCollection 2`] = `"b"`;
+
+exports[`test state handler test LITStateHandlerV2 setCollection 3`] = `
+Immutable.Map {
+  "collection": Immutable.List [
+    "a",
+    "b",
+    "c",
+  ],
+  "index": 1,
+  "value": "b",
 }
 `;

@@ -17,7 +17,7 @@ var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/ge
 
 var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
 
-var _Handler = _interopRequireDefault(require("./state/Handler"));
+var _Handler = _interopRequireDefault(require("./_state/Handler"));
 
 var _LITBaseHandler2 = _interopRequireDefault(require("../LITBaseHandler"));
 
@@ -253,7 +253,8 @@ function (_LITBaseHandler) {
       });
     },
     get: function get() {
-      return this._s;
+      if (this._s) return this._s;
+      return this.getStateStore();
     }
   }]);
   return LITStateHandler;
