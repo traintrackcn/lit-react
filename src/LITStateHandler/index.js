@@ -40,7 +40,6 @@ export default class LITStateHandler extends LITBaseHandler{
 
     set s(value){
         this._s = value;
-
         const children = this.getChildren();
         children.forEach(child => {
             child.s = value;
@@ -48,7 +47,6 @@ export default class LITStateHandler extends LITBaseHandler{
     }
 
     get s(){
-        if (this._s) return this._s;
         return this.getStateStore();
     }
 

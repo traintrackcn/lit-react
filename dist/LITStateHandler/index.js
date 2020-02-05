@@ -253,7 +253,6 @@ function (_LITBaseHandler) {
       });
     },
     get: function get() {
-      if (this._s) return this._s;
       return this.getStateStore();
     }
   }]);
