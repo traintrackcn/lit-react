@@ -94,6 +94,11 @@ function () {
       return ctx;
     }
   }, {
+    key: "getStateStore",
+    value: function getStateStore() {
+      return this._getCustom('getStateStore', 'stateStore');
+    }
+  }, {
     key: "getComponent",
     value: function getComponent() {
       var item = this.getParentHandlerOrComponent(); // console.log(`=== getComponent ${this.getDebugInfo(item)} ===`);
@@ -111,12 +116,27 @@ function () {
   }, {
     key: "getHandler",
     value: function getHandler(fnName) {
-      return this._getHandler(fnName);
-    }
-  }, {
-    key: "_getHandler",
-    value: function _getHandler(fnName) {
       if (!fnName) fnName = 'getHandler';
+      return this._getCustom(fnName, 'handler');
+    } // _getHandler(fnName) {
+    //     const parent = this.getParentHandlerOrComponent();
+    //     console.log(`=== search ${fnName} from parent -> ${this.getDebugInfo(parent)} ===`);
+    //     var fn = parent[fnName];
+    //     if (fn) {
+    //         fn = fn.bind(parent);
+    //         const result = fn();
+    //         if (result) {
+    //             console.log(`=== found handler -> ${result.constructor.name} ===`)
+    //             return result;
+    //         }
+    //     }
+    //     const reason = `Invalid handler via ${fnName}`;
+    //     throw Error(reason);
+    // }
+
+  }, {
+    key: "_getCustom",
+    value: function _getCustom(fnName, type) {
       var parent = this.getParentHandlerOrComponent();
       console.log("=== search ".concat(fnName, " from parent -> ").concat(this.getDebugInfo(parent), " ==="));
       var fn = parent[fnName];

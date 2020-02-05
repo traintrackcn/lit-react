@@ -44,6 +44,27 @@ function () {
       var ctxH = this.getCtxHandler();
       return ctxH.getComponent();
     }
+  }, {
+    key: "getClassName",
+    value: function getClassName() {
+      try {
+        return this.constructor.name;
+      } catch (e) {
+        return this;
+      }
+    }
+  }, {
+    key: "setStateStore",
+    value: function setStateStore(value) {
+      this._store = value;
+    }
+  }, {
+    key: "getStateStore",
+    value: function getStateStore() {
+      if (this._store) return this._store;
+      var ctxH = this.getCtxHandler();
+      return ctxH.getStateStore();
+    }
     /**
      * @description get top handler
      */

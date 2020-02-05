@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test state handler test set_value 1`] = `
+Immutable.Map {
+  "value": Immutable.Map {
+    "key": "value",
+  },
+}
+`;
+
+exports[`test state handler test set_value 2`] = `
+Immutable.Map {
+  "key": "value",
+}
+`;
+
+exports[`test state handler test setCollection 1`] = `
+Immutable.Map {
+  "collection": Immutable.List [
+    "a",
+    "b",
+    "c",
+  ],
+}
+`;
+
+exports[`test state handler test setCollection 2`] = `"b"`;
+
+exports[`test state handler test setCollection 3`] = `
+Immutable.Map {
+  "collection": Immutable.List [
+    "a",
+    "b",
+    "c",
+  ],
+  "index": 1,
+  "value": "b",
+}
+`;

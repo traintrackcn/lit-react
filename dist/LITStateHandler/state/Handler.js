@@ -19,6 +19,7 @@ function () {
   function _default(path) {
     (0, _classCallCheck2["default"])(this, _default);
     this.p = path;
+    this.s = undefined;
   }
 
   (0, _createClass2["default"])(_default, [{

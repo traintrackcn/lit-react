@@ -4,6 +4,7 @@ export default class {
 
     constructor(path){
         this.p = path;
+        this.s = undefined;
     }
 
     get(){

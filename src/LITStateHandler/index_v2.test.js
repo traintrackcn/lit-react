@@ -1,22 +1,21 @@
-import Handler from '.';
-import s from '../s';
-import p from './mock/p';
-import { fromJS } from 'immutable';
+import EntryHandler from './mock/EntryHandler';
+import TopHandler from './mock/TopHandler';
 
-const h = new Handler(p.t);
-h.s = s;
+// h.setStateStore(s);
+const topH = new TopHandler();
+const h = topH.getH();
+
 
 describe('test state handler', () => {
 
-
-    it('test set_collection', () => {
+    it('test setCollection', () => {
 
         h.del();
 
         const collection = [
             'a', 'b', 'c'
         ];
-        h.set_collection(fromJS(collection));
+        h.setCollection(collection);
         expect(h.get()).toMatchSnapshot();
         h.select(1);
         expect(h.getValue()).toMatchSnapshot();
@@ -40,14 +39,7 @@ describe('test state handler', () => {
     });
 
 
-    it('test s ops', () => {
-        s.set(p.a, 'a');
-        expect(s.get(p.a)).toMatchSnapshot();
-        s.set(p.a, undefined);
-        expect(s.get(p.a)).toBeFalsy();
-    });
-
-
 });
+
 
 

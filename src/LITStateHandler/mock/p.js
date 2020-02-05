@@ -1,4 +1,4 @@
-import LITPath from "../LITPath";
+import LITPath from "../../LITPath";
 
 //for test purpose
 

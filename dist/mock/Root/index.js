@@ -45,8 +45,10 @@ function (_LITPureComponent) {
     key: "render",
     value: function render() {
       var h = this.getHandler();
-      var StateListener = h.getStateListenerClass();
-      console.log('Root render()');
+      var StateListener = h.getStateListenerClass(); // const target = h.getStateListenerTarget();
+
+      console.log('Root render()'); // if (!target) return null;
+
       return _react["default"].createElement("div", null, "hello world", _react["default"].createElement(StateListener, null));
     }
   }, {

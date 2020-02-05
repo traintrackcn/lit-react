@@ -2,21 +2,18 @@
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _ = _interopRequireDefault(require("."));
+var _EntryHandler = _interopRequireDefault(require("./mock/EntryHandler"));
 
-var _s = _interopRequireDefault(require("../s"));
+var _TopHandler = _interopRequireDefault(require("./mock/TopHandler"));
 
-var _p = _interopRequireDefault(require("./mock/p"));
-
-var _immutable = require("immutable");
-
-var h = new _["default"](_p["default"].t);
-h.s = _s["default"];
+// h.setStateStore(s);
+var topH = new _TopHandler["default"]();
+var h = topH.getH();
 describe('test state handler', function () {
-  it('test set_collection', function () {
+  it('test setCollection', function () {
     h.del();
     var collection = ['a', 'b', 'c'];
-    h.set_collection((0, _immutable.fromJS)(collection));
+    h.setCollection(collection);
     expect(h.get()).toMatchSnapshot();
     h.select(1);
     expect(h.getValue()).toMatchSnapshot();
@@ -34,14 +31,5 @@ describe('test state handler', function () {
     h.setValue(value);
     expect(h.get()).toMatchSnapshot();
     expect(h.getValue()).toMatchSnapshot();
-  });
-  it('test s ops', function () {
-    _s["default"].set(_p["default"].a, 'a');
-
-    expect(_s["default"].get(_p["default"].a)).toMatchSnapshot();
-
-    _s["default"].set(_p["default"].a, undefined);
-
-    expect(_s["default"].get(_p["default"].a)).toBeFalsy();
   });
 });

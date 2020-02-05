@@ -63,6 +63,10 @@ export default class {
         return ctx
     }
 
+    getStateStore() {
+        return this._getCustom('getStateStore', 'stateStore');
+    }
+ 
     getComponent() {
         const item = this.getParentHandlerOrComponent();
         // console.log(`=== getComponent ${this.getDebugInfo(item)} ===`);
@@ -77,12 +81,29 @@ export default class {
     }
 
     getHandler(fnName) {
-        return this._getHandler(fnName);
+        if (!fnName) fnName = 'getHandler';
+        return this._getCustom(fnName, 'handler');
     }
 
-    _getHandler(fnName) {
-        if (!fnName) fnName = 'getHandler';
+    // _getHandler(fnName) {
+        
+    //     const parent = this.getParentHandlerOrComponent();
+    //     console.log(`=== search ${fnName} from parent -> ${this.getDebugInfo(parent)} ===`);
+    //     var fn = parent[fnName];
+    //     if (fn) {
+    //         fn = fn.bind(parent);
+    //         const result = fn();
+    //         if (result) {
+    //             console.log(`=== found handler -> ${result.constructor.name} ===`)
+    //             return result;
+    //         }
+    //     }
 
+    //     const reason = `Invalid handler via ${fnName}`;
+    //     throw Error(reason);
+    // }
+
+    _getCustom(fnName, type) {
         const parent = this.getParentHandlerOrComponent();
         console.log(`=== search ${fnName} from parent -> ${this.getDebugInfo(parent)} ===`);
         var fn = parent[fnName];

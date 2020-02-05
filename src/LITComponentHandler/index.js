@@ -115,6 +115,7 @@ export default class extends LITBaseHandler{
                 console.log(h.getClassName(), 'state listener detected target ->', this.props.target);
                 return null
             }
+
         }
     
         const mapStateToProps = () => {
@@ -125,6 +126,7 @@ export default class extends LITBaseHandler{
         return connect(
             mapStateToProps
         )(StateListener);
+        
     }
 
 }

@@ -13,7 +13,9 @@ export default class Root extends LITPureComponent {
     render() {
         const h = this.getHandler();
         const StateListener = h.getStateListenerClass();
+        // const target = h.getStateListenerTarget();
         console.log('Root render()');
+        // if (!target) return null;
         return (
             <div>
                 hello world

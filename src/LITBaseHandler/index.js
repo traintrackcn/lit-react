@@ -26,6 +26,24 @@ export default class LITBaseHandler {
         return ctxH.getComponent();
     }
 
+    getClassName() {
+        try{
+            return this.constructor.name;
+        }catch(e){
+            return this;
+        }
+    }
+
+    setStateStore(value) {
+        this._store = value;
+    }
+
+    getStateStore() {
+        if (this._store) return this._store;
+        const ctxH = this.getCtxHandler();
+        return ctxH.getStateStore();
+    }
+
     /**
      * @description get top handler
      */
