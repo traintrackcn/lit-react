@@ -7,29 +7,31 @@ it('test pattern 1, create child handlers in constructor', () => {
     const h = new TopHandlerPattern1(p);
     h.s = s;
 
-    const h1 = h.h1;
-    expect(h1.getStateStore()).toBeTruthy();
-    expect(h1.s).toBeTruthy();
-
-    const h2 = h.h2;
-    expect(h2.getStateStore()).toBeTruthy();
-    expect(h2.s).toBeTruthy();
+    test([
+        h.h1,
+        h.h2
+    ]);
 });
 
 
-it('test parttern 2, use "getXXX" to create child handlers' , () => {
-    const h = new TopHandlerPattern2(p);
+it('test pattern 3, use "getXXX" to create child handlers' , () => {
+    const h = new TopHandlerPattern3(p);
 
-    const h1 = h.getH1();
-    expect(h1.s).toBeTruthy();
-    expect(h1.getStateStore()).toBeTruthy();
+    test([
+        h.getH1(),
+        h.getH2()
+    ]);
 
-    const h2 = h.getH2();
-    expect(h2.s).toBeTruthy();
-    expect(h2.getStateStore()).toBeTruthy();
 });
 
 
+const test = (handlers) => {
+
+    handlers.forEach(h => {
+        expect(h.s).toBeTruthy();
+        expect(h.getStateStore()).toBeTruthy();
+    });
+}
 
 
 class TopHandlerPattern1 extends LITStateHandler {
@@ -45,7 +47,24 @@ class TopHandlerPattern1 extends LITStateHandler {
 
 }
 
+
+/**
+ * won't support this pattern
+ */
 class TopHandlerPattern2 extends LITStateHandlerV2 {
+    constructor(path) {
+        super(path);
+
+        this.h1 = new LITStateHandler(this.p.a);
+        this.push(this.h1);
+
+        this.h2 = new LITStateHandlerV2(this.p.a);
+        this.push(this.h2);
+    }
+
+}
+
+class TopHandlerPattern3 extends LITStateHandlerV2 {
 
     constructor(path, ctx) {
         super(path, ctx);

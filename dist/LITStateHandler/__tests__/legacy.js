@@ -23,22 +23,19 @@ var _s = _interopRequireDefault(require("../../s"));
 it('test pattern 1, create child handlers in constructor', function () {
   var h = new TopHandlerPattern1(_p3["default"]);
   h.s = _s["default"];
-  var h1 = h.h1;
-  expect(h1.getStateStore()).toBeTruthy();
-  expect(h1.s).toBeTruthy();
-  var h2 = h.h2;
-  expect(h2.getStateStore()).toBeTruthy();
-  expect(h2.s).toBeTruthy();
+  test([h.h1, h.h2]);
 });
-it('test parttern 2, use "getXXX" to create child handlers', function () {
-  var h = new TopHandlerPattern2(_p3["default"]);
-  var h1 = h.getH1();
-  expect(h1.s).toBeTruthy();
-  expect(h1.getStateStore()).toBeTruthy();
-  var h2 = h.getH2();
-  expect(h2.s).toBeTruthy();
-  expect(h2.getStateStore()).toBeTruthy();
+it('test pattern 3, use "getXXX" to create child handlers', function () {
+  var h = new TopHandlerPattern3(_p3["default"]);
+  test([h.getH1(), h.getH2()]);
 });
+
+var test = function test(handlers) {
+  handlers.forEach(function (h) {
+    expect(h.s).toBeTruthy();
+    expect(h.getStateStore()).toBeTruthy();
+  });
+};
 
 var TopHandlerPattern1 =
 /*#__PURE__*/
@@ -63,18 +60,46 @@ function (_LITStateHandler) {
 
   return TopHandlerPattern1;
 }(_["default"]);
+/**
+ * won't support this pattern
+ */
+
 
 var TopHandlerPattern2 =
 /*#__PURE__*/
 function (_LITStateHandlerV) {
   (0, _inherits2["default"])(TopHandlerPattern2, _LITStateHandlerV);
 
-  function TopHandlerPattern2(path, ctx) {
+  function TopHandlerPattern2(path) {
+    var _this2;
+
     (0, _classCallCheck2["default"])(this, TopHandlerPattern2);
-    return (0, _possibleConstructorReturn2["default"])(this, (0, _getPrototypeOf2["default"])(TopHandlerPattern2).call(this, path, ctx));
+    _this2 = (0, _possibleConstructorReturn2["default"])(this, (0, _getPrototypeOf2["default"])(TopHandlerPattern2).call(this, path));
+    _this2.h1 = new _["default"](_this2.p.a);
+
+    _this2.push(_this2.h1);
+
+    _this2.h2 = new _index_v["default"](_this2.p.a);
+
+    _this2.push(_this2.h2);
+
+    return _this2;
   }
 
-  (0, _createClass2["default"])(TopHandlerPattern2, [{
+  return TopHandlerPattern2;
+}(_index_v["default"]);
+
+var TopHandlerPattern3 =
+/*#__PURE__*/
+function (_LITStateHandlerV2) {
+  (0, _inherits2["default"])(TopHandlerPattern3, _LITStateHandlerV2);
+
+  function TopHandlerPattern3(path, ctx) {
+    (0, _classCallCheck2["default"])(this, TopHandlerPattern3);
+    return (0, _possibleConstructorReturn2["default"])(this, (0, _getPrototypeOf2["default"])(TopHandlerPattern3).call(this, path, ctx));
+  }
+
+  (0, _createClass2["default"])(TopHandlerPattern3, [{
     key: "getStateStore",
     value: function getStateStore() {
       return _s["default"];
@@ -102,5 +127,5 @@ function (_LITStateHandlerV) {
       return this._h2;
     }
   }]);
-  return TopHandlerPattern2;
+  return TopHandlerPattern3;
 }(_index_v["default"]);

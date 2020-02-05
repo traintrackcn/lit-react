@@ -78,6 +78,12 @@ function () {
       return ctxH.getHandler(fnName);
     }
   }, {
+    key: "p",
+    get: function get() {
+      return this.getPath();
+    } //DEPRECATED
+
+  }, {
     key: "s",
     get: function get() {
       return this.getStateStore();

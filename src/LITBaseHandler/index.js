@@ -46,6 +46,11 @@ export default class LITBaseHandler {
     }
 
     //DEPRECATED
+    get p() {
+        return this.getPath();
+    }
+
+    //DEPRECATED
     get s() { 
         return this.getStateStore();
     }
