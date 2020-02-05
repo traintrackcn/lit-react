@@ -61,6 +61,7 @@ function () {
   }, {
     key: "getStateStore",
     value: function getStateStore() {
+      if (this.s) return this.s;
       if (this._store) return this._store;
       var ctxH = this.getCtxHandler();
       return ctxH.getStateStore();

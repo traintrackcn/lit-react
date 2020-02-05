@@ -39,6 +39,7 @@ export default class LITBaseHandler {
     }
 
     getStateStore() {
+        if (this.s) return this.s;
         if (this._store) return this._store;
         const ctxH = this.getCtxHandler();
         return ctxH.getStateStore();
