@@ -137,8 +137,8 @@ function () {
   }, {
     key: "_getCustom",
     value: function _getCustom(fnName, type) {
-      var parent = this.getParentHandlerOrComponent();
-      console.log("=== search ".concat(fnName, " from parent -> ").concat(this.getDebugInfo(parent), " ==="));
+      var parent = this.getParentHandlerOrComponent(); // console.log(`=== search ${fnName} from parent -> ${this.getDebugInfo(parent)} ===`);
+
       var fn = parent[fnName];
 
       if (fn) {
@@ -146,7 +146,7 @@ function () {
         var result = fn();
 
         if (result) {
-          console.log("=== found ".concat(fnName, " -> ").concat(result.constructor.name, " ==="));
+          // console.log(`=== found ${fnName} -> ${result.constructor.name} ===`)
           return result;
         }
       }
