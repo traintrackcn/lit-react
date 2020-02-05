@@ -146,12 +146,12 @@ function () {
         var result = fn();
 
         if (result) {
-          console.log("=== found handler -> ".concat(result.constructor.name, " ==="));
+          console.log("=== found ".concat(fnName, " -> ").concat(result.constructor.name, " ==="));
           return result;
         }
       }
 
-      var reason = "Invalid handler via ".concat(fnName);
+      var reason = "Invalid ".concat(fnName);
       throw Error(reason);
     }
   }]);

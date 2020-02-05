@@ -66,11 +66,19 @@ function (_LITBaseHandler) {
     }
   }, {
     key: "push",
-    value: function push(childH) {
+    value: function push(child) {
       var children = this.getChildren();
-      children.push(childH);
-      childH.s = this._s;
+      children.push(child);
+      this.setStateStoreForChild(child);
     }
+  }, {
+    key: "setStateStoreForChild",
+    value: function setStateStoreForChild(child) {
+      try {
+        child.s = this.getStateStore();
+      } catch (e) {}
+    } // get/set s must be a pair
+
   }, {
     key: "get",
     value: function get() {
@@ -246,10 +254,12 @@ function (_LITBaseHandler) {
   }, {
     key: "s",
     set: function set(value) {
-      this._s = value;
+      var _this2 = this;
+
+      this.setStateStore(value);
       var children = this.getChildren();
       children.forEach(function (child) {
-        child.s = value;
+        _this2.setStateStoreForChild(child);
       });
     },
     get: function get() {

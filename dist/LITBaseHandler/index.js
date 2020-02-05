@@ -61,22 +61,30 @@ function () {
   }, {
     key: "getStateStore",
     value: function getStateStore() {
-      // console.log('this._s ->', this._s);
       // console.log('this._store ->', this._store);
-      if (this._s) return this._s;
       if (this._store) return this._store;
       var ctxH = this.getCtxHandler();
       return ctxH.getStateStore();
-    }
-    /**
-     * @description get top handler
-     */
+    } //DEPRECATED
 
   }, {
     key: "getHandler",
+
+    /**
+     * @description get top handler
+     */
     value: function getHandler(fnName) {
       var ctxH = this.getCtxHandler();
       return ctxH.getHandler(fnName);
+    }
+  }, {
+    key: "s",
+    get: function get() {
+      return this.getStateStore();
+    } //DEPRECATED
+    ,
+    set: function set(value) {
+      this.setStateStore(value);
     }
   }]);
   return LITBaseHandler;

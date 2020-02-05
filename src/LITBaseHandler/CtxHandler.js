@@ -111,12 +111,12 @@ export default class {
             fn = fn.bind(parent);
             const result = fn();
             if (result) {
-                console.log(`=== found handler -> ${result.constructor.name} ===`)
+                console.log(`=== found ${fnName} -> ${result.constructor.name} ===`)
                 return result;
             }
         }
 
-        const reason = `Invalid handler via ${fnName}`;
+        const reason = `Invalid ${fnName}`;
         throw Error(reason);
     }
 

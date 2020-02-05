@@ -32,22 +32,28 @@ export default class LITStateHandler extends LITBaseHandler{
         return this._children;
     }
 
-    push(childH){
+    push(child){
         const children = this.getChildren();
-        children.push(childH);
-        childH.s = this._s;
+        children.push(child);
+        this.setStateStoreForChild(child);
     }
 
+    setStateStoreForChild(child) {
+        try{
+            child.s = this.getStateStore();
+        }catch(e){}
+    }
 
+    // get/set s must be a pair
     set s(value){
-        this._s = value;
+        this.setStateStore(value);
         const children = this.getChildren();
         children.forEach(child => {
-            child.s = value;
+            this.setStateStoreForChild(child);
         });
     }
 
-    get s(){
+    get s() {
         return this.getStateStore();
     }
 
