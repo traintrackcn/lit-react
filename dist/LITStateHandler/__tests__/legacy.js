@@ -34,6 +34,7 @@ var test = function test(handlers) {
   handlers.forEach(function (h) {
     expect(h.s).toBeTruthy();
     expect(h.getStateStore()).toBeTruthy();
+    h.set();
   });
 };
 

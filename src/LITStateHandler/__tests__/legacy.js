@@ -30,6 +30,7 @@ const test = (handlers) => {
     handlers.forEach(h => {
         expect(h.s).toBeTruthy();
         expect(h.getStateStore()).toBeTruthy();
+        h.set();
     });
 }
 
