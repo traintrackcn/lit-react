@@ -1,7 +1,7 @@
 
-import TopHandler from './mock/TopHandler';
-import LITStateHandlerV2 from './index_v2';
-import LITStateHandler from '.';
+import TopHandler from '../mock/TopHandler';
+import LITStateHandlerV2 from '../index_v2';
+import LITStateHandler from '..';
 
 describe('test state handler', () => {
 

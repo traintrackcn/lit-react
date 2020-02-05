@@ -50,7 +50,7 @@ function (_LITBaseHandler) {
       if (!this._state) {
         var path = this.getPath();
         this._state = new _Handler["default"](path);
-        this.push(this._state);
+        this._state.s = this.getStateStore();
       }
 
       return this._state;
@@ -69,7 +69,7 @@ function (_LITBaseHandler) {
     value: function push(childH) {
       var children = this.getChildren();
       children.push(childH);
-      if (this.s) childH.s = this.s;
+      childH.s = this._s;
     }
   }, {
     key: "get",

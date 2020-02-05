@@ -20,7 +20,7 @@ export default class LITStateHandler extends LITBaseHandler{
         if (!this._state) {
             const path = this.getPath();
             this._state = new _StateHandler(path);
-            this.push(this._state);
+            this._state.s = this.getStateStore();
         }
         return this._state;
     }
@@ -35,8 +35,9 @@ export default class LITStateHandler extends LITBaseHandler{
     push(childH){
         const children = this.getChildren();
         children.push(childH);
-        if (this.s) childH.s = this.s;
+        childH.s = this._s;
     }
+
 
     set s(value){
         this._s = value;
