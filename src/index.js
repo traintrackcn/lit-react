@@ -5,6 +5,7 @@ import LITPath from './LITPath';
 import LITCommonPath from './LITCommonPath';
 import LITHandler from './LITStateHandler';
 import LITStateHandler from './LITStateHandler';
+import LITStateHandlerV2 from './LITStateHandler/index_v2';
 import LITComponentHandler from './LITComponentHandler';
 import LITBaseHandler from './LITBaseHandler';
 import Collection from './Collection';
@@ -30,6 +31,7 @@ export {
     LITReducer,
     LITCommonPath,
     LITStateHandler,
+    LITStateHandlerV2,
     LITComponentHandler,
     LITBaseHandler,
     Collection,

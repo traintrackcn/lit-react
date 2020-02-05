@@ -49,6 +49,12 @@ Object.defineProperty(exports, "LITStateHandler", {
     return _LITStateHandler["default"];
   }
 });
+Object.defineProperty(exports, "LITStateHandlerV2", {
+  enumerable: true,
+  get: function get() {
+    return _index_v["default"];
+  }
+});
 Object.defineProperty(exports, "LITComponentHandler", {
   enumerable: true,
   get: function get() {
@@ -92,6 +98,8 @@ var _LITPath = _interopRequireDefault(require("./LITPath"));
 var _LITCommonPath = _interopRequireDefault(require("./LITCommonPath"));
 
 var _LITStateHandler = _interopRequireDefault(require("./LITStateHandler"));
+
+var _index_v = _interopRequireDefault(require("./LITStateHandler/index_v2"));
 
 var _LITComponentHandler = _interopRequireDefault(require("./LITComponentHandler"));
 
