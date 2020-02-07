@@ -85,6 +85,12 @@ Object.defineProperty(exports, "store", {
     return _s.store;
   }
 });
+Object.defineProperty(exports, "r", {
+  enumerable: true,
+  get: function get() {
+    return _s.r;
+  }
+});
 exports.c = void 0;
 
 var _LITPureComponent = _interopRequireDefault(require("./LITPureComponent"));

@@ -9,7 +9,7 @@ import LITStateHandlerV2 from './LITStateHandler/index_v2';
 import LITComponentHandler from './LITComponentHandler';
 import LITBaseHandler from './LITBaseHandler';
 import Collection from './Collection';
-import s, { store } from './s';
+import s, { store, r } from './s';
 
 import CNode from './c/Node';
 import CKey from './c/Key';
@@ -37,6 +37,7 @@ export {
     Collection,
     LITHandler, //deprecated
     s,
+    r,
     store,
     c
 };
