@@ -28,10 +28,10 @@ function () {
       if (!this.s) throw new Error('stateH.s not found, p -> ' + JSON.stringify(this.p));
       if (!this.p) throw new Error('stateH.p not found');
       var state = this.s.get(this.p);
-      if (state) return state; // set init state
-
-      this.set({});
-      return this.s.get(this.p);
+      if (state) return state;
+      return (0, _immutable.Map)(); // set init state
+      // this.set({});
+      // return this.s.get(this.p);
     }
   }, {
     key: "del",

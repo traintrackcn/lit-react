@@ -1,4 +1,4 @@
-import { fromJS } from "immutable";
+import { fromJS, Map } from "immutable";
 
 export default class {
 
@@ -15,9 +15,10 @@ export default class {
         const state =  this.s.get(this.p);
         if (state) return state;
 
+        return Map();
         // set init state
-        this.set({});
-        return this.s.get(this.p);
+        // this.set({});
+        // return this.s.get(this.p);
     }
 
 
