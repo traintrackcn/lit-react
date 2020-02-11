@@ -60,6 +60,14 @@ export default class LITBaseHandler {
         this.setStateStore(value);
     }
 
+    set(value) {
+        this._raw = value;
+    }
+
+    get() {
+        return this._raw;
+    }
+
     /**
      * @description get top handler
      */

@@ -68,11 +68,21 @@ function () {
     } //DEPRECATED
 
   }, {
-    key: "getHandler",
-
+    key: "set",
+    value: function set(value) {
+      this._raw = value;
+    }
+  }, {
+    key: "get",
+    value: function get() {
+      return this._raw;
+    }
     /**
      * @description get top handler
      */
+
+  }, {
+    key: "getHandler",
     value: function getHandler(fnName) {
       var ctxH = this.getCtxHandler();
       return ctxH.getHandler(fnName);
