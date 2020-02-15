@@ -7,6 +7,8 @@ export class RootPath extends LITPath{
         super(path);
         this.property1 = this.path.concat(['property1']);
         this.guest = new GuestPath(this.path.concat(['guest']));
+        this.t = this.path.concat(['t']);
+        this.a = this.path.concat(['a']);
     }
 }
 

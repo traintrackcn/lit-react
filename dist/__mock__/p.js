@@ -30,6 +30,8 @@ function (_LITPath) {
     _this = (0, _possibleConstructorReturn2["default"])(this, (0, _getPrototypeOf2["default"])(RootPath).call(this, path));
     _this.property1 = _this.path.concat(['property1']);
     _this.guest = new GuestPath(_this.path.concat(['guest']));
+    _this.t = _this.path.concat(['t']);
+    _this.a = _this.path.concat(['a']);
     return _this;
   }
 

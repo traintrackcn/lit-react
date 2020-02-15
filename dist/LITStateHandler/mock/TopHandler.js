@@ -17,7 +17,7 @@ var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/ge
 
 var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
 
-var _p = _interopRequireDefault(require("./p"));
+var _p = _interopRequireDefault(require("../../__mock__/p"));
 
 var _s = _interopRequireDefault(require("../../s"));
 

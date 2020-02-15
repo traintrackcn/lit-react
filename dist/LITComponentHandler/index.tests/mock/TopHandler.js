@@ -19,7 +19,7 @@ var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits
 
 var _ = _interopRequireDefault(require("../.."));
 
-var _p = _interopRequireDefault(require("../../../LITStateHandler/mock/p"));
+var _p = _interopRequireDefault(require("../../../__mock__/p"));
 
 var _StateHandler = _interopRequireDefault(require("./StateHandler"));
 

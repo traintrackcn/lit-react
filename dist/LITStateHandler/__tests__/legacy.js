@@ -16,7 +16,7 @@ var _ = _interopRequireDefault(require(".."));
 
 var _index_v = _interopRequireDefault(require("../index_v2"));
 
-var _p3 = _interopRequireDefault(require("../mock/p"));
+var _p3 = _interopRequireDefault(require("../../__mock__/p"));
 
 var _s = _interopRequireDefault(require("../../s"));
 

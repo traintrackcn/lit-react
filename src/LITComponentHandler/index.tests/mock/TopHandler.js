@@ -1,5 +1,5 @@
 import LITComponentHandler from "../..";
-import p from '../../../LITStateHandler/mock/p';
+import p from '../../../__mock__/p';
 import StateHandler from './StateHandler';
 import ComponentHandler from './ComponentHandler';
 import CommonHandler from './CommonHandler';

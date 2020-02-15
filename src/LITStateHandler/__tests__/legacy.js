@@ -1,6 +1,6 @@
 import LITStateHandler from "..";
 import LITStateHandlerV2 from '../index_v2';
-import p from '../mock/p';
+import p from '../../__mock__/p';
 import s from '../../s';
 
 it('test pattern 1, create child handlers in constructor', () => {

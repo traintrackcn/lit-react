@@ -1,4 +1,4 @@
-import p from './p';
+import p from '../../__mock__/p';
 import s from '../../s';
 import LITStateHandlerV2 from '../index_v2';
 
