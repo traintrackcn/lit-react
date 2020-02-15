@@ -40,12 +40,14 @@ export default class LITStateHandlerV2 extends LITBaseHandler{
     getKey(key){
         const h = this.getStateHandler();
         const state = h.get();
+        console.log('getKey state ->', key, state);
         return state.getIn(key);
     }
 
     setKey(key, value){
         const h = this.getStateHandler();
         var state = h.get();
+        console.log('setKey state ->', key,state);
         state = state.setIn(key, value);
         this.set(state);
     }
@@ -53,7 +55,7 @@ export default class LITStateHandlerV2 extends LITBaseHandler{
     delKey(key){
         const h = this.getStateHandler();
         var state = h.get();
-        state = state.delete(key);
+        state = state.deleteIn(key);
         this.set(state);
     }
 

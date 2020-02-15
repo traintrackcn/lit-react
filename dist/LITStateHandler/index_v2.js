@@ -72,6 +72,7 @@ function (_LITBaseHandler) {
     value: function getKey(key) {
       var h = this.getStateHandler();
       var state = h.get();
+      console.log('getKey state ->', key, state);
       return state.getIn(key);
     }
   }, {
@@ -79,6 +80,7 @@ function (_LITBaseHandler) {
     value: function setKey(key, value) {
       var h = this.getStateHandler();
       var state = h.get();
+      console.log('setKey state ->', key, state);
       state = state.setIn(key, value);
       this.set(state);
     }
@@ -87,7 +89,7 @@ function (_LITBaseHandler) {
     value: function delKey(key) {
       var h = this.getStateHandler();
       var state = h.get();
-      state = state["delete"](key);
+      state = state.deleteIn(key);
       this.set(state);
     }
   }, {

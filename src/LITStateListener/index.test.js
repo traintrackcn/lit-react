@@ -1,6 +1,6 @@
 import Renderer from 'react-test-renderer';
 import React from 'react';
-import App from '../mock/App';
+import App from '../__mock__/App';
 
 it('', () => {
 

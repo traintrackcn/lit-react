@@ -15,7 +15,7 @@ var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/ge
 
 var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
 
-var _LITPath2 = _interopRequireDefault(require("../LITPath"));
+var _LITPath3 = _interopRequireDefault(require("../LITPath"));
 
 //for test purpose
 var RootPath =
@@ -29,13 +29,31 @@ function (_LITPath) {
     (0, _classCallCheck2["default"])(this, RootPath);
     _this = (0, _possibleConstructorReturn2["default"])(this, (0, _getPrototypeOf2["default"])(RootPath).call(this, path));
     _this.property1 = _this.path.concat(['property1']);
+    _this.guest = new GuestPath(_this.path.concat(['guest']));
     return _this;
   }
 
   return RootPath;
-}(_LITPath2["default"]);
+}(_LITPath3["default"]);
 
 exports.RootPath = RootPath;
+
+var GuestPath =
+/*#__PURE__*/
+function (_LITPath2) {
+  (0, _inherits2["default"])(GuestPath, _LITPath2);
+
+  function GuestPath(path) {
+    var _this2;
+
+    (0, _classCallCheck2["default"])(this, GuestPath);
+    _this2 = (0, _possibleConstructorReturn2["default"])(this, (0, _getPrototypeOf2["default"])(GuestPath).call(this, path));
+    _this2.email = _this2.path.concat(['email']);
+    return _this2;
+  }
+
+  return GuestPath;
+}(_LITPath3["default"]);
 
 var _default = new RootPath(['r']);
 

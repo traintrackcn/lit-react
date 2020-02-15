@@ -2,45 +2,57 @@
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-var _TopHandler = _interopRequireDefault(require("./mock/TopHandler"));
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
+
+var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
+
+var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
 
 var _index_v = _interopRequireDefault(require("./index_v2"));
 
-var _ = _interopRequireDefault(require("."));
+var _p = _interopRequireDefault(require("../__mock__/p"));
 
-describe('test state handler', function () {
-  var clsArr = [_index_v["default"], _["default"]];
+var _s = _interopRequireDefault(require("../s"));
 
-  var _loop = function _loop(index) {
-    var cls = clsArr[index];
-    var topH = new _TopHandler["default"](null, null, cls);
-    var h = topH.getH();
-    var hName = h.getClassName();
-    it("test ".concat(hName, " setCollection"), function () {
-      h.del();
-      var collection = ['a', 'b', 'c'];
-      h.setCollection(collection);
-      expect(h.get()).toMatchSnapshot();
-      h.select(1);
-      expect(h.getValue()).toMatchSnapshot();
-      expect(h.get()).toMatchSnapshot();
-    });
-    it("test ".concat(hName, " getPath"), function () {
-      var expected = '["r","t"]';
-      expect(JSON.stringify(h.getPath())).toBe(expected);
-    });
-    it("test ".concat(hName, " set_value"), function () {
-      h.del();
-      var value = {
-        'key': 'value'
-      };
-      h.setValue(value);
-      expect(h.get()).toMatchSnapshot();
-      expect(h.getValue()).toMatchSnapshot();
-    });
-  };
-
-  for (var index = 0; index < clsArr.length; index++) {
-    _loop(index);
-  }
+it('test set,get,del state', function () {
+  var h = new GuestHandler(_p["default"].guest);
+  var value = 'abc@email.com';
+  h.setStateStore(_s["default"]);
+  h.setEmail(value);
+  expect(h.getEmail()).toBe(value);
+  h.delEmail();
+  expect(h.getEmail()).toBe();
 });
+
+var GuestHandler =
+/*#__PURE__*/
+function (_LITStateHandlerV) {
+  (0, _inherits2["default"])(GuestHandler, _LITStateHandlerV);
+
+  function GuestHandler() {
+    (0, _classCallCheck2["default"])(this, GuestHandler);
+    return (0, _possibleConstructorReturn2["default"])(this, (0, _getPrototypeOf2["default"])(GuestHandler).apply(this, arguments));
+  }
+
+  (0, _createClass2["default"])(GuestHandler, [{
+    key: "setEmail",
+    value: function setEmail(value) {
+      this.setKey(this.p.email, value);
+    }
+  }, {
+    key: "getEmail",
+    value: function getEmail() {
+      return this.getKey(this.p.email);
+    }
+  }, {
+    key: "delEmail",
+    value: function delEmail() {
+      this.delKey(this.p.email);
+    }
+  }]);
+  return GuestHandler;
+}(_index_v["default"]);
