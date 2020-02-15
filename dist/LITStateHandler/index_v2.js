@@ -26,9 +26,9 @@ var LITStateHandlerV2 =
 function (_LITBaseHandler) {
   (0, _inherits2["default"])(LITStateHandlerV2, _LITBaseHandler);
 
-  function LITStateHandlerV2(path, ctx) {
+  function LITStateHandlerV2(path, parent) {
     (0, _classCallCheck2["default"])(this, LITStateHandlerV2);
-    return (0, _possibleConstructorReturn2["default"])(this, (0, _getPrototypeOf2["default"])(LITStateHandlerV2).call(this, path, ctx));
+    return (0, _possibleConstructorReturn2["default"])(this, (0, _getPrototypeOf2["default"])(LITStateHandlerV2).call(this, path, parent));
   }
 
   (0, _createClass2["default"])(LITStateHandlerV2, [{
@@ -72,14 +72,14 @@ function (_LITBaseHandler) {
     value: function getKey(key) {
       var h = this.getStateHandler();
       var state = h.get();
-      return state.get(key);
+      return state.getIn(key);
     }
   }, {
     key: "setKey",
     value: function setKey(key, value) {
       var h = this.getStateHandler();
       var state = h.get();
-      state = state.set(key, value);
+      state = state.setIn(key, value);
       this.set(state);
     }
   }, {

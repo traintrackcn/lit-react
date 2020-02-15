@@ -3,8 +3,8 @@ import LITBaseHandler from '../LITBaseHandler';
 
 export default class LITStateHandlerV2 extends LITBaseHandler{
     
-    constructor(path, ctx){
-        super(path, ctx);
+    constructor(path, parent){
+        super(path, parent);
     }
 
     get(){
@@ -40,13 +40,13 @@ export default class LITStateHandlerV2 extends LITBaseHandler{
     getKey(key){
         const h = this.getStateHandler();
         const state = h.get();
-        return state.get(key);
+        return state.getIn(key);
     }
 
     setKey(key, value){
         const h = this.getStateHandler();
         var state = h.get();
-        state = state.set(key, value);
+        state = state.setIn(key, value);
         this.set(state);
     }
 
