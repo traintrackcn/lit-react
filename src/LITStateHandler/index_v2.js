@@ -47,7 +47,7 @@ export default class LITStateHandlerV2 extends LITBaseHandler{
     setKey(key, value){
         const h = this.getStateHandler();
         var state = h.get();
-        console.log('setKey state ->', key,state);
+        console.log('setKey state ->', key, value,state);
         state = state.setIn(key, value);
         this.set(state);
     }
