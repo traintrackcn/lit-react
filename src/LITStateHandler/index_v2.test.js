@@ -10,6 +10,9 @@ it('test set,get,del state', () => {
 
     expect(h.getEmail()).toBe(value);
 
+    const state = s.get(['r']);
+    expect(JSON.stringify(state)).toBe('{\"guest\":{\"email\":\"abc@email.com\"}}');
+
     h.delEmail();
     expect(h.getEmail()).toBe();
 
@@ -19,17 +22,22 @@ it('test set,get,del state', () => {
 class GuestHandler extends LITStateHandlerV2 {
 
     setEmail(value) {
-        this.setKey(this.p.email, value);
+        this.setKey(k.EMAIL, value);
     }
 
     getEmail() {
-        return this.getKey(this.p.email);
+        return this.getKey(k.EMAIL);
     }
 
     delEmail() {
-        this.delKey(this.p.email);
+        this.delKey(k.EMAIL);
     }
 
+}
+
+
+const k = {
+    EMAIL: 'email'
 }
 
 

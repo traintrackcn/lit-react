@@ -37,26 +37,47 @@ export default class LITStateHandlerV2 extends LITBaseHandler{
         h.del_value();
     }
 
+
+    checkKey(key) {
+        if (!key) throw new Error(`Cannot find key`);
+        if (Array.isArray(key)) throw new Error(`Key should be string, current -> ${key}`);
+    }
+
     getKey(key){
-        const h = this.getStateHandler();
-        const state = h.get();
-        console.log('getKey state ->', key, state);
-        return state.getIn(key);
+        try {
+            this.checkKey(key);
+            const h = this.getStateHandler();
+            const state = h.get();
+            console.log('getKey state ->', key, state);
+            return state.get(key);
+        }catch(e) {
+            throw e;
+        }
     }
 
     setKey(key, value){
-        const h = this.getStateHandler();
-        var state = h.get();
-        console.log('setKey state ->', key, value,state);
-        state = state.setIn(key, value);
-        this.set(state);
+        try {
+            this.checkKey(key);
+            const h = this.getStateHandler();
+            var state = h.get();
+            console.log('setKey state ->', key, value,state);
+            state = state.set(key, value);
+            this.set(state);
+        }catch(e) {
+            throw e;
+        }
     }
 
     delKey(key){
-        const h = this.getStateHandler();
-        var state = h.get();
-        state = state.deleteIn(key);
-        this.set(state);
+        try {
+            this.checkKey(key);
+            const h = this.getStateHandler();
+            var state = h.get();
+            state = state.delete(key);
+            this.set(state);
+        }catch(e) {
+            throw e;
+        }
     }
 
     getCollection(){

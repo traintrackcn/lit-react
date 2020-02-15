@@ -68,29 +68,50 @@ function (_LITBaseHandler) {
       h.del_value();
     }
   }, {
+    key: "checkKey",
+    value: function checkKey(key) {
+      if (!key) throw new Error("Cannot find key");
+      if (Array.isArray(key)) throw new Error("Key should be string, current -> ".concat(key));
+    }
+  }, {
     key: "getKey",
     value: function getKey(key) {
-      var h = this.getStateHandler();
-      var state = h.get();
-      console.log('getKey state ->', key, state);
-      return state.getIn(key);
+      try {
+        this.checkKey(key);
+        var h = this.getStateHandler();
+        var state = h.get();
+        console.log('getKey state ->', key, state);
+        return state.get(key);
+      } catch (e) {
+        throw e;
+      }
     }
   }, {
     key: "setKey",
     value: function setKey(key, value) {
-      var h = this.getStateHandler();
-      var state = h.get();
-      console.log('setKey state ->', key, value, state);
-      state = state.setIn(key, value);
-      this.set(state);
+      try {
+        this.checkKey(key);
+        var h = this.getStateHandler();
+        var state = h.get();
+        console.log('setKey state ->', key, value, state);
+        state = state.set(key, value);
+        this.set(state);
+      } catch (e) {
+        throw e;
+      }
     }
   }, {
     key: "delKey",
     value: function delKey(key) {
-      var h = this.getStateHandler();
-      var state = h.get();
-      state = state.deleteIn(key);
-      this.set(state);
+      try {
+        this.checkKey(key);
+        var h = this.getStateHandler();
+        var state = h.get();
+        state = state["delete"](key);
+        this.set(state);
+      } catch (e) {
+        throw e;
+      }
     }
   }, {
     key: "getCollection",

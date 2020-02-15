@@ -24,6 +24,10 @@ it('test set,get,del state', function () {
   h.setStateStore(_s["default"]);
   h.setEmail(value);
   expect(h.getEmail()).toBe(value);
+
+  var state = _s["default"].get(['r']);
+
+  expect(JSON.stringify(state)).toBe('{\"guest\":{\"email\":\"abc@email.com\"}}');
   h.delEmail();
   expect(h.getEmail()).toBe();
 });
@@ -41,18 +45,22 @@ function (_LITStateHandlerV) {
   (0, _createClass2["default"])(GuestHandler, [{
     key: "setEmail",
     value: function setEmail(value) {
-      this.setKey(this.p.email, value);
+      this.setKey(k.EMAIL, value);
     }
   }, {
     key: "getEmail",
     value: function getEmail() {
-      return this.getKey(this.p.email);
+      return this.getKey(k.EMAIL);
     }
   }, {
     key: "delEmail",
     value: function delEmail() {
-      this.delKey(this.p.email);
+      this.delKey(k.EMAIL);
     }
   }]);
   return GuestHandler;
 }(_index_v["default"]);
+
+var k = {
+  EMAIL: 'email'
+};
