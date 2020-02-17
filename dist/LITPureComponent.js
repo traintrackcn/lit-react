@@ -19,7 +19,7 @@ var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits
 
 var _react = require("react");
 
-var _pool = _interopRequireDefault(require("./pool"));
+var _Pool = _interopRequireDefault(require("./Pool"));
 
 var LITPureComponent =
 /*#__PURE__*/
@@ -100,7 +100,7 @@ function (_PureComponent) {
     key: "getPool",
     value: function getPool() {
       if (!this._pool) {
-        this._pool = new _pool["default"]();
+        this._pool = new _Pool["default"]();
       }
 
       return this._pool;

@@ -1,5 +1,5 @@
 import { PureComponent } from 'react';
-import Pool from './pool';
+import Pool from './Pool';
 
 export default class LITPureComponent extends PureComponent {
 
