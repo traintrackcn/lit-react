@@ -11,7 +11,6 @@ import LITBaseHandler from './LITBaseHandler';
 import Collection from './Collection';
 import s, { store, r } from './s';
 import Pool from './Pool';
-
 import CNode from './c/Node';
 import CKey from './c/Key';
 import CHanlder from './c/Handler';
@@ -22,7 +21,7 @@ const c = {
     Node: CNode,
     Key: CKey,
     Handler: CHanlder, 
-    util: CUtil 
+    util: CUtil
   };
 
 export {
