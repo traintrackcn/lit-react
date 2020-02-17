@@ -14,6 +14,7 @@ it('', function () {
   expect(instance.c).toBe(3);
   var keys = Object.keys(pool._getCache());
   expect(keys[0]).toBe('TestHandler');
+  expect(pool.get(TestHandler)).toBe(instance);
 });
 
 var TestHandler = function TestHandler(a, b, c) {

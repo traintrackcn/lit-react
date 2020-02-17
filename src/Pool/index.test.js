@@ -10,6 +10,7 @@ it('', () => {
 
     const keys = Object.keys(pool._getCache());
     expect(keys[0]).toBe('TestHandler');
+    expect(pool.get(TestHandler)).toBe(instance);
 })
 
 
