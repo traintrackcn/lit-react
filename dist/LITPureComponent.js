@@ -1,7 +1,5 @@
 "use strict";
 
-var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
-
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 Object.defineProperty(exports, "__esModule", {
@@ -19,7 +17,9 @@ var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/ge
 
 var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
 
-var _react = _interopRequireWildcard(require("react"));
+var _react = require("react");
+
+var _pool = _interopRequireDefault(require("./pool"));
 
 var LITPureComponent =
 /*#__PURE__*/
@@ -89,6 +89,15 @@ function (_PureComponent) {
     key: "render",
     value: function render() {
       return null;
+    }
+  }, {
+    key: "getPool",
+    value: function getPool() {
+      if (!this._pool) {
+        this._pool = new _pool["default"]();
+      }
+
+      return this._pool;
     }
   }]);
   return LITPureComponent;

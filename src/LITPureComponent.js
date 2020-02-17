@@ -1,4 +1,5 @@
-import React, { PureComponent } from 'react';
+import { PureComponent } from 'react';
+import Pool from './pool';
 
 export default class LITPureComponent extends PureComponent {
 
@@ -50,6 +51,14 @@ export default class LITPureComponent extends PureComponent {
 
     render() {
         return null;
+    }
+
+
+    getPool() {
+        if (!this._pool) {
+            this._pool = new Pool();
+        }
+        return this._pool;
     }
 
 

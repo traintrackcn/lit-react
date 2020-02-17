@@ -10,6 +10,7 @@ import LITComponentHandler from './LITComponentHandler';
 import LITBaseHandler from './LITBaseHandler';
 import Collection from './Collection';
 import s, { store, r } from './s';
+import Pool from './Pool';
 
 import CNode from './c/Node';
 import CKey from './c/Key';
@@ -36,6 +37,7 @@ export {
     LITBaseHandler,
     Collection,
     LITHandler, //deprecated
+    Pool,
     s,
     r,
     store,

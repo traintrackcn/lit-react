@@ -2,11 +2,7 @@ import LITBaseHandler from "../LITBaseHandler";
 import { PureComponent } from "react";
 import { connect } from "react-redux";
 
-export default class extends LITBaseHandler{
-
-    constructor(component) {
-        super(component)
-    }
+export default class LITComponentHandler extends LITBaseHandler{
 
     getProps() {
         try{

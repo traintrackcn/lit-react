@@ -27,17 +27,17 @@ var _react = require("react");
 
 var _reactRedux = require("react-redux");
 
-var _default =
+var LITComponentHandler =
 /*#__PURE__*/
 function (_LITBaseHandler) {
-  (0, _inherits2["default"])(_default, _LITBaseHandler);
+  (0, _inherits2["default"])(LITComponentHandler, _LITBaseHandler);
 
-  function _default(component) {
-    (0, _classCallCheck2["default"])(this, _default);
-    return (0, _possibleConstructorReturn2["default"])(this, (0, _getPrototypeOf2["default"])(_default).call(this, component));
+  function LITComponentHandler() {
+    (0, _classCallCheck2["default"])(this, LITComponentHandler);
+    return (0, _possibleConstructorReturn2["default"])(this, (0, _getPrototypeOf2["default"])(LITComponentHandler).apply(this, arguments));
   }
 
-  (0, _createClass2["default"])(_default, [{
+  (0, _createClass2["default"])(LITComponentHandler, [{
     key: "getProps",
     value: function getProps() {
       try {
@@ -211,7 +211,7 @@ function (_LITBaseHandler) {
       return (0, _reactRedux.connect)(mapStateToProps)(StateListener);
     }
   }]);
-  return _default;
+  return LITComponentHandler;
 }(_LITBaseHandler2["default"]);
 
-exports["default"] = _default;
+exports["default"] = LITComponentHandler;

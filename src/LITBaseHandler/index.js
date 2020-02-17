@@ -1,4 +1,5 @@
 import CtxHandler from './CtxHandler';
+import Pool from '../Pool';
 
 export default class LITBaseHandler {
 
@@ -74,6 +75,14 @@ export default class LITBaseHandler {
     getHandler(fnName) {
         const ctxH = this.getCtxHandler();
         return ctxH.getHandler(fnName);
+    }
+
+
+    getPool() {
+        if (!this._pool) {
+            this._pool = new Pool();
+        }
+        return this._pool;
     }
 
 }

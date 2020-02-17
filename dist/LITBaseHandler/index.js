@@ -13,6 +13,8 @@ var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/creat
 
 var _CtxHandler = _interopRequireDefault(require("./CtxHandler"));
 
+var _Pool = _interopRequireDefault(require("../Pool"));
+
 var LITBaseHandler =
 /*#__PURE__*/
 function () {
@@ -86,6 +88,15 @@ function () {
     value: function getHandler(fnName) {
       var ctxH = this.getCtxHandler();
       return ctxH.getHandler(fnName);
+    }
+  }, {
+    key: "getPool",
+    value: function getPool() {
+      if (!this._pool) {
+        this._pool = new _Pool["default"]();
+      }
+
+      return this._pool;
     }
   }, {
     key: "p",
