@@ -78,6 +78,11 @@ export default class LITBaseHandler {
     }
 
 
+    pool(Class, param1, param2, param3) {
+        const pool = this.getPool();
+        return pool.get(Class, param1, param2, param3);
+    }
+
     getPool() {
         if (!this._pool) {
             this._pool = new Pool();

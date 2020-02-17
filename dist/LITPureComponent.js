@@ -91,6 +91,12 @@ function (_PureComponent) {
       return null;
     }
   }, {
+    key: "pool",
+    value: function pool(Class, param1, param2, param3) {
+      var pool = this.getPool();
+      return pool.get(Class, param1, param2, param3);
+    }
+  }, {
     key: "getPool",
     value: function getPool() {
       if (!this._pool) {
