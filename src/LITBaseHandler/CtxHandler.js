@@ -38,7 +38,7 @@ export default class {
     getPath(key) {
         const ctx = this.get();
         if (this.isPath(ctx)) {
-            console.log('getPath ctx ->', ctx, ' key ->', key);
+            // console.log('getPath ctx ->', ctx, ' key ->', key);
             if (key) return ctx.concat([key]);
             return ctx;
         }

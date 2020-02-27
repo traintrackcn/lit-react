@@ -23,11 +23,7 @@ describe('test handler', () => {
     });
 
 
-    it('test getPath', () => {
-        const h = new LITBaseHandler(p.a);
-        expect( JSON.stringify(h.getPath()) ).toBe("[\"r\",\"a\"]");
-        expect( JSON.stringify(h.getPath('a1')) ).toBe("[\"r\",\"a\",\"a1\"]");
-    });
+    
 
 });
 

@@ -31,11 +31,6 @@ describe('test handler', function () {
     var result = h11.getHandler();
     expect(result).toBe(h);
   });
-  it('test getPath', function () {
-    var h = new _index["default"](_p["default"].a);
-    expect(JSON.stringify(h.getPath())).toBe("[\"r\",\"a\"]");
-    expect(JSON.stringify(h.getPath('a1'))).toBe("[\"r\",\"a\",\"a1\"]");
-  });
 });
 
 var TopHandler =

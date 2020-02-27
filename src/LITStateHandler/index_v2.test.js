@@ -18,6 +18,12 @@ it('test set,get,del state', () => {
 
 });
 
+it.only('test getPath', () => {
+    const h = new LITStateHandlerV2(p.a);
+    expect( JSON.stringify(h.getPath()) ).toBe("[\"r\",\"a\"]");
+    expect( JSON.stringify(h.getPath('a1')) ).toBe("[\"r\",\"a\",\"a1\"]");
+});
+
 
 class GuestHandler extends LITStateHandlerV2 {
 

@@ -31,6 +31,11 @@ it('test set,get,del state', function () {
   h.delEmail();
   expect(h.getEmail()).toBe();
 });
+it.only('test getPath', function () {
+  var h = new _index_v["default"](_p["default"].a);
+  expect(JSON.stringify(h.getPath())).toBe("[\"r\",\"a\"]");
+  expect(JSON.stringify(h.getPath('a1'))).toBe("[\"r\",\"a\",\"a1\"]");
+});
 
 var GuestHandler =
 /*#__PURE__*/
