@@ -35,9 +35,13 @@ export default class {
         return false;
     }
 
-    getPath() {
+    getPath(key) {
         const ctx = this.get();
-        if (this.isPath(ctx)) return ctx;
+        if (this.isPath(ctx)) {
+            console.log('getPath ctx ->', ctx, ' key ->', key);
+            if (key) return ctx.concat([key]);
+            return ctx;
+        }
         const reason = `Invalid path -> ${ctx}`;
         throw new Error(reason);
     }

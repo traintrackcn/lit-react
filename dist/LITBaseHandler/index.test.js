@@ -12,7 +12,9 @@ var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/ge
 
 var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
 
-var _ = _interopRequireDefault(require("."));
+var _index = _interopRequireDefault(require("./index"));
+
+var _p = _interopRequireDefault(require("../__mock__/p"));
 
 describe('test handler', function () {
   it('test handler21', function () {
@@ -28,6 +30,11 @@ describe('test handler', function () {
     var h11 = h1.getChildHandler1();
     var result = h11.getHandler();
     expect(result).toBe(h);
+  });
+  it('test getPath', function () {
+    var h = new _index["default"](_p["default"].a);
+    expect(JSON.stringify(h.getPath())).toBe("[\"r\",\"a\"]");
+    expect(JSON.stringify(h.getPath('a1'))).toBe("[\"r\",\"a\",\"a1\"]");
   });
 });
 
@@ -66,7 +73,7 @@ function (_LITHandler) {
     }
   }]);
   return TopHandler;
-}(_["default"]);
+}(_index["default"]);
 
 var ChildHandler1 =
 /*#__PURE__*/
@@ -82,14 +89,14 @@ function (_LITHandler2) {
     key: "getChildHandler1",
     value: function getChildHandler1() {
       if (!this._h1) {
-        this._h1 = new _["default"](this);
+        this._h1 = new _index["default"](this);
       }
 
       return this._h1;
     }
   }]);
   return ChildHandler1;
-}(_["default"]);
+}(_index["default"]);
 
 var ChildHandler2 =
 /*#__PURE__*/
@@ -105,11 +112,11 @@ function (_LITHandler3) {
     key: "getChildHandler1",
     value: function getChildHandler1() {
       if (!this._h1) {
-        this._h1 = new _["default"](this);
+        this._h1 = new _index["default"](this);
       }
 
       return this._h1;
     }
   }]);
   return ChildHandler2;
-}(_["default"]);
+}(_index["default"]);

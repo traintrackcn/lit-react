@@ -17,9 +17,9 @@ export default class LITBaseHandler {
         return this._ctx;
     }
 
-    getPath() {
+    getPath(key) {
         const ctxH = this.getCtxHandler();
-        return ctxH.getPath();
+        return ctxH.getPath(key);
     }
 
     getComponent() {

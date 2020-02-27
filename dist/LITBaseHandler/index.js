@@ -36,9 +36,9 @@ function () {
     }
   }, {
     key: "getPath",
-    value: function getPath() {
+    value: function getPath(key) {
       var ctxH = this.getCtxHandler();
-      return ctxH.getPath();
+      return ctxH.getPath(key);
     }
   }, {
     key: "getComponent",

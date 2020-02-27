@@ -1,4 +1,6 @@
-import LITHandler from '.';
+import LITHandler from './index';
+import LITBaseHandler from './index';
+import p from '../__mock__/p';
 
 describe('test handler', () => {
 
@@ -18,6 +20,13 @@ describe('test handler', () => {
 
         const result = h11.getHandler();
         expect(result).toBe(h);
+    });
+
+
+    it('test getPath', () => {
+        const h = new LITBaseHandler(p.a);
+        expect( JSON.stringify(h.getPath()) ).toBe("[\"r\",\"a\"]");
+        expect( JSON.stringify(h.getPath('a1')) ).toBe("[\"r\",\"a\",\"a1\"]");
     });
 
 });

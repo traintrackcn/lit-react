@@ -63,9 +63,15 @@ function () {
     }
   }, {
     key: "getPath",
-    value: function getPath() {
+    value: function getPath(key) {
       var ctx = this.get();
-      if (this.isPath(ctx)) return ctx;
+
+      if (this.isPath(ctx)) {
+        console.log('getPath ctx ->', ctx, ' key ->', key);
+        if (key) return ctx.concat([key]);
+        return ctx;
+      }
+
       var reason = "Invalid path -> ".concat(ctx);
       throw new Error(reason);
     }
