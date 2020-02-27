@@ -194,7 +194,7 @@ function (_LITBaseHandler) {
         }, {
           key: "render",
           value: function render() {
-            console.log(h.getClassName(), 'state listener detected target ->', this.props.target);
+            console.log(h.getClassName(), 'state listener detected target change');
             return null;
           }
         }]);
