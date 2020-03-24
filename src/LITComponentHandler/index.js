@@ -29,6 +29,11 @@ export default class LITComponentHandler extends LITBaseHandler{
         c.setState(value);
     }
 
+    async setStateAsync(value) {
+        const c = this.getComponent();
+        await c.setState(value);
+    }
+
     getNewState() { // use this state to render component
         const seed = Math.random();
         return {seed};
@@ -73,6 +78,11 @@ export default class LITComponentHandler extends LITBaseHandler{
     render(){ // setState to activate rendering
         const newState = this.getNewState();
         this.setState(newState);
+    }
+
+    async renderAsync(){
+        const newState = this.getNewState();
+        await this.setStateAsync(newState);
     }
 
     reRender() { // reset and render

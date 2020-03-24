@@ -65,6 +65,35 @@ function (_LITBaseHandler) {
       c.setState(value);
     }
   }, {
+    key: "setStateAsync",
+    value: function () {
+      var _setStateAsync = (0, _asyncToGenerator2["default"])(
+      /*#__PURE__*/
+      _regenerator["default"].mark(function _callee(value) {
+        var c;
+        return _regenerator["default"].wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                c = this.getComponent();
+                _context.next = 3;
+                return c.setState(value);
+
+              case 3:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function setStateAsync(_x) {
+        return _setStateAsync.apply(this, arguments);
+      }
+
+      return setStateAsync;
+    }()
+  }, {
     key: "getNewState",
     value: function getNewState() {
       // use this state to render component
@@ -114,25 +143,25 @@ function (_LITBaseHandler) {
     value: function () {
       var _setNaviParamsAsync = (0, _asyncToGenerator2["default"])(
       /*#__PURE__*/
-      _regenerator["default"].mark(function _callee(params) {
+      _regenerator["default"].mark(function _callee2(params) {
         var navigation;
-        return _regenerator["default"].wrap(function _callee$(_context) {
+        return _regenerator["default"].wrap(function _callee2$(_context2) {
           while (1) {
-            switch (_context.prev = _context.next) {
+            switch (_context2.prev = _context2.next) {
               case 0:
                 navigation = this.getNavigation();
-                _context.next = 3;
+                _context2.next = 3;
                 return navigation.setParams(params);
 
               case 3:
               case "end":
-                return _context.stop();
+                return _context2.stop();
             }
           }
-        }, _callee, this);
+        }, _callee2, this);
       }));
 
-      function setNaviParamsAsync(_x) {
+      function setNaviParamsAsync(_x2) {
         return _setNaviParamsAsync.apply(this, arguments);
       }
 
@@ -145,6 +174,35 @@ function (_LITBaseHandler) {
       var newState = this.getNewState();
       this.setState(newState);
     }
+  }, {
+    key: "renderAsync",
+    value: function () {
+      var _renderAsync = (0, _asyncToGenerator2["default"])(
+      /*#__PURE__*/
+      _regenerator["default"].mark(function _callee3() {
+        var newState;
+        return _regenerator["default"].wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                newState = this.getNewState();
+                _context3.next = 3;
+                return this.setStateAsync(newState);
+
+              case 3:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this);
+      }));
+
+      function renderAsync() {
+        return _renderAsync.apply(this, arguments);
+      }
+
+      return renderAsync;
+    }()
   }, {
     key: "reRender",
     value: function reRender() {// reset and render
