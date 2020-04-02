@@ -80,6 +80,10 @@ export default class LITComponentHandler extends LITBaseHandler{
         this.setState(newState);
     }
 
+    async renderAsync() {
+        this.render();
+    }
+
     async renderAsync(){
         const newState = this.getNewState();
         await this.setStateAsync(newState);
@@ -113,8 +117,8 @@ export default class LITComponentHandler extends LITBaseHandler{
 
         class StateListener extends PureComponent{
     
-            componentDidUpdate() {
-                h.render();
+            async componentDidUpdate() {
+                await h.renderAsync();
             }
     
             render() {

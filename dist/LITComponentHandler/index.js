@@ -180,16 +180,13 @@ function (_LITBaseHandler) {
       var _renderAsync = (0, _asyncToGenerator2["default"])(
       /*#__PURE__*/
       _regenerator["default"].mark(function _callee3() {
-        var newState;
         return _regenerator["default"].wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
-                newState = this.getNewState();
-                _context3.next = 3;
-                return this.setStateAsync(newState);
+                this.render();
 
-              case 3:
+              case 1:
               case "end":
                 return _context3.stop();
             }
@@ -199,6 +196,35 @@ function (_LITBaseHandler) {
 
       function renderAsync() {
         return _renderAsync.apply(this, arguments);
+      }
+
+      return renderAsync;
+    }()
+  }, {
+    key: "renderAsync",
+    value: function () {
+      var _renderAsync2 = (0, _asyncToGenerator2["default"])(
+      /*#__PURE__*/
+      _regenerator["default"].mark(function _callee4() {
+        var newState;
+        return _regenerator["default"].wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                newState = this.getNewState();
+                _context4.next = 3;
+                return this.setStateAsync(newState);
+
+              case 3:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4, this);
+      }));
+
+      function renderAsync() {
+        return _renderAsync2.apply(this, arguments);
       }
 
       return renderAsync;
@@ -246,9 +272,31 @@ function (_LITBaseHandler) {
 
         (0, _createClass2["default"])(StateListener, [{
           key: "componentDidUpdate",
-          value: function componentDidUpdate() {
-            h.render();
-          }
+          value: function () {
+            var _componentDidUpdate = (0, _asyncToGenerator2["default"])(
+            /*#__PURE__*/
+            _regenerator["default"].mark(function _callee5() {
+              return _regenerator["default"].wrap(function _callee5$(_context5) {
+                while (1) {
+                  switch (_context5.prev = _context5.next) {
+                    case 0:
+                      _context5.next = 2;
+                      return h.renderAsync();
+
+                    case 2:
+                    case "end":
+                      return _context5.stop();
+                  }
+                }
+              }, _callee5);
+            }));
+
+            function componentDidUpdate() {
+              return _componentDidUpdate.apply(this, arguments);
+            }
+
+            return componentDidUpdate;
+          }()
         }, {
           key: "render",
           value: function render() {
