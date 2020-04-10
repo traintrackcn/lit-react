@@ -48,7 +48,7 @@ export default class LITStateHandlerV2 extends LITBaseHandler{
             this.checkKey(key);
             const h = this.getStateHandler();
             const state = h.get();
-            console.log('getKey state ->', key, state);
+            // console.log('getKey state ->', key, state);
             return state.get(key);
         }catch(e) {
             throw e;
@@ -60,7 +60,7 @@ export default class LITStateHandlerV2 extends LITBaseHandler{
             this.checkKey(key);
             const h = this.getStateHandler();
             var state = h.get();
-            console.log('setKey state ->', key, value,state);
+            // console.log('setKey state ->', key, value,state);
             state = state.set(key, value);
             this.set(state);
         }catch(e) {

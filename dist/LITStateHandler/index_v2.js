@@ -79,8 +79,8 @@ function (_LITBaseHandler) {
       try {
         this.checkKey(key);
         var h = this.getStateHandler();
-        var state = h.get();
-        console.log('getKey state ->', key, state);
+        var state = h.get(); // console.log('getKey state ->', key, state);
+
         return state.get(key);
       } catch (e) {
         throw e;
@@ -92,8 +92,8 @@ function (_LITBaseHandler) {
       try {
         this.checkKey(key);
         var h = this.getStateHandler();
-        var state = h.get();
-        console.log('setKey state ->', key, value, state);
+        var state = h.get(); // console.log('setKey state ->', key, value,state);
+
         state = state.set(key, value);
         this.set(state);
       } catch (e) {
